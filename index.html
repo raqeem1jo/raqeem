@@ -1,14 +1,398 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منصة رقيم - Raqeem Platform</title>
-    <script type="module" crossorigin src="/assets/index-BzQ02FqJ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-D82z52i9.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="root">
+        <!-- Header Section -->
+        <header class="gradient-bg text-white">
+            <nav class="container mx-auto px-4 py-4">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4 space-x-reverse">
+                        <img src="./assets/raqeem-logo.jpeg" alt="شعار رقيم" class="h-12 w-12 rounded-full">
+                        <h1 class="text-2xl font-bold">منصة رقيم</h1>
+                    </div>
+                    <button id="menu-toggle" class="md:hidden">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                    <div id="nav-menu" class="hidden md:flex space-x-6 space-x-reverse">
+                        <a href="#home" class="hover:text-blue-200 transition-colors">الرئيسية</a>
+                        <a href="#about" class="hover:text-blue-200 transition-colors">عن المبادرة</a>
+                        <a href="#videos" class="hover:text-blue-200 transition-colors">الدورات</a>
+                        <a href="#achievements" class="hover:text-blue-200 transition-colors">الإنجازات</a>
+                        <a href="#team" class="hover:text-blue-200 transition-colors">الفريق</a>
+                        <a href="#contact" class="hover:text-blue-200 transition-colors">اتصل بنا</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-pattern min-h-screen flex items-center">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <img src="./assets/raqeem-logo.jpeg" alt="شعار رقيم" class="h-32 w-32 mx-auto mb-8 rounded-full shadow-2xl">
+                    <h1 class="text-5xl md:text-7xl font-bold gradient-text mb-6 arabic-text">
+                        منصة رقيم
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8 arabic-text leading-relaxed">
+                        مبادرة لنشر الوعي بالتقنية وتمكين الشباب في المجتمع المدني
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="text-center">
+                            <div class="stats-counter text-4xl font-bold mb-2">50+</div>
+                            <p class="text-gray-600">دورة وورشة تعليمية</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter text-4xl font-bold mb-2">4500+</div>
+                            <p class="text-gray-600">مستفيد</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="stats-counter text-4xl font-bold mb-2">8</div>
+                            <p class="text-gray-600">جهة متعاونة</p>
+                        </div>
+                    </div>
+                    <button class="enhanced-button text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                        ابدأ رحلتك التقنية
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl font-bold gradient-text mb-8 arabic-text">عن مبادرة رقيم</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-8 arabic-text">
+                        مبادرة رقيم أسسها بدر الحسبان بهدف تمكين شباب وشابات المجتمع المدني. انطلقت من محافظة المفرق في عام 2024 وساعدت الشباب على تطوير مهاراتهم الرقمية والتكنولوجية. تعمل المبادرة على تقديم برامج تدريبية وورش عمل عملية تساعد على استخدام التكنولوجيا بكفاءة، وتعزيز وعيهم الرقمي، بما يسهم في خلق فرص أوسع للتعليم والعمل. وتسعى رقيم إلى التوسع للوصول إلى محافظات أخرى، معتمدة على الشراكات والدعم المجتمعي لتحقيق أثر مستدام.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Album Section -->
+        <section id="achievements" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold gradient-text text-center mb-12 arabic-text">ألبوم الإنجازات</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="achievement-card-enhanced">
+                        <img src="./assets/workshop_image.png" alt="ورش عمل تفاعلية" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 arabic-text">ورش عمل تفاعلية</h3>
+                            <p class="text-gray-600 arabic-text">تنظيم أكثر من 50 ورشة عمل تفاعلية في مختلف المجالات التقنية، مما ساهم في تطوير مهارات المشاركين وزيادة وعيهم التقني.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card-enhanced">
+                        <img src="./assets/beneficiaries_image.png" alt="توسيع قاعدة المستفيدين" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 arabic-text">توسيع قاعدة المستفيدين</h3>
+                            <p class="text-gray-600 arabic-text">الوصول إلى أكثر من 4500 مستفيد من مختلف الفئات العمرية والمهنية، مما يعكس الأثر الواسع للمبادرة في المجتمع.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card-enhanced">
+                        <img src="./assets/partnership_image.png" alt="شراكات استراتيجية" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 arabic-text">شراكات استراتيجية</h3>
+                            <p class="text-gray-600 arabic-text">بناء شراكات قوية مع مؤسسات رائدة مثل مؤسسة ولي العهد ومنصة نحن والجامعات المحلية، مما عزز من قدرة المبادرة على التأثير.</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card-enhanced">
+                        <img src="./assets/youth_empowerment_image.png" alt="تمكين الشباب" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 arabic-text">تمكين الشباب</h3>
+                            <p class="text-gray-600 arabic-text">تمكين الشباب من خلال تطوير مهاراتهم التقنية وخلق فرص عمل جديدة، مما ساهم في تحسين وضعهم الاقتصادي والاجتماعي.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Videos Section -->
+        <section id="videos" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold gradient-text text-center mb-12 arabic-text">الدورات والورش التعليمية</h2>
+                
+                <!-- Category Filter -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="category-btn active" data-category="all">
+                        <i class="fas fa-globe mr-2"></i>الكل
+                    </button>
+                    <button class="category-btn" data-category="ai">
+                        <i class="fas fa-brain mr-2"></i>ذكاء اصطناعي
+                    </button>
+                    <button class="category-btn" data-category="security">
+                        <i class="fas fa-shield-alt mr-2"></i>أمن سيبراني
+                    </button>
+                    <button class="category-btn" data-category="programming">
+                        <i class="fas fa-code mr-2"></i>برمجة
+                    </button>
+                    <button class="category-btn" data-category="tech">
+                        <i class="fas fa-laptop mr-2"></i>أمور تقنية متنوعة
+                    </button>
+                </div>
+
+                <!-- Videos Grid -->
+                <div id="videos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Videos will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold gradient-text text-center mb-12 arabic-text">فريق العمل</h2>
+                
+                <!-- Administrators -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 arabic-text">الفريق الإداري</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-user text-4xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 arabic-text">بدر الحسبان</h4>
+                            <p class="text-gray-600 arabic-text">مؤسس المبادرة</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-user text-4xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 arabic-text">أحمد محمد</h4>
+                            <p class="text-gray-600 arabic-text">مدير التدريب</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-user text-4xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 arabic-text">فاطمة علي</h4>
+                            <p class="text-gray-600 arabic-text">مديرة العلاقات العامة</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-user text-4xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 arabic-text">خالد أحمد</h4>
+                            <p class="text-gray-600 arabic-text">مدير التطوير التقني</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trainers -->
+                <div>
+                    <h3 class="text-3xl font-bold text-center mb-8 arabic-text">المدربون المعتمدون</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-brain text-4xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 arabic-text">محمد أحمد</h4>
+                            <p class="text-gray-600 arabic-text">مدرب الذكاء الاصطناعي</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-shield-alt text-4xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 arabic-text">سارة محمود</h4>
+                            <p class="text-gray-600 arabic-text">مدربة الأمن السيبراني</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-code text-4xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 arabic-text">عمر خالد</h4>
+                            <p class="text-gray-600 arabic-text">مدرب البرمجة</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">
+                                <i class="fas fa-laptop text-4xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2 arabic-text">نور حسن</h4>
+                            <p class="text-gray-600 arabic-text">مدربة تكنولوجيا المعلومات</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section id="partners" class="partners-section py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold gradient-text text-center mb-12 arabic-text partners-section-title">الجهات المتعاونة</h2>
+                <div class="partners-grid-enhanced">
+                    <div class="partner-card-enhanced">
+                        <div class="partner-logo-container-enhanced">
+                            <img src="./assets/cpf-logo.jpg" alt="مؤسسة ولي العهد" class="partner-logo-enhanced">
+                        </div>
+                        <h3 class="partner-name-enhanced">مؤسسة ولي العهد</h3>
+                        <p class="partner-description-enhanced">شريك استراتيجي في تمكين الشباب وتطوير قدراتهم</p>
+                        <div class="partner-icon-enhanced">
+                            <i class="fas fa-handshake text-white text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="partner-card-enhanced">
+                        <div class="partner-logo-container-enhanced">
+                            <img src="./assets/nahno-logo.png" alt="منصة نحن" class="partner-logo-enhanced">
+                        </div>
+                        <h3 class="partner-name-enhanced">منصة نحن</h3>
+                        <p class="partner-description-enhanced">منصة رقمية لتعزيز التواصل والتفاعل المجتمعي</p>
+                        <div class="partner-icon-enhanced">
+                            <i class="fas fa-handshake text-white text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="partner-card-enhanced">
+                        <div class="partner-logo-container-enhanced">
+                            <img src="./assets/albayt-logo.jpg" alt="جامعة آل البيت" class="partner-logo-enhanced">
+                        </div>
+                        <h3 class="partner-name-enhanced">جامعة آل البيت</h3>
+                        <p class="partner-description-enhanced">مؤسسة تعليمية رائدة في التعليم العالي والبحث العلمي</p>
+                        <div class="partner-icon-enhanced">
+                            <i class="fas fa-handshake text-white text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="partner-card-enhanced">
+                        <div class="partner-logo-container-enhanced">
+                            <img src="./assets/yarmouk-logo.png" alt="جامعة اليرموك" class="partner-logo-enhanced">
+                        </div>
+                        <h3 class="partner-name-enhanced">جامعة اليرموك</h3>
+                        <p class="partner-description-enhanced">جامعة عريقة تساهم في تطوير التعليم التقني</p>
+                        <div class="partner-icon-enhanced">
+                            <i class="fas fa-handshake text-white text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="partner-card-enhanced">
+                        <div class="partner-logo-container-enhanced">
+                            <img src="./assets/aum-logo.png" alt="الجامعة الأمريكية في مادبا" class="partner-logo-enhanced">
+                        </div>
+                        <h3 class="partner-name-enhanced">الجامعة الأمريكية في مادبا</h3>
+                        <p class="partner-description-enhanced">مؤسسة تعليمية متميزة في التعليم الجامعي</p>
+                        <div class="partner-icon-enhanced">
+                            <i class="fas fa-handshake text-white text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="partner-card-enhanced">
+                        <div class="partner-logo-container-enhanced">
+                            <div class="placeholder-logo">
+                                <i class="fas fa-building text-4xl text-gray-400"></i>
+                            </div>
+                        </div>
+                        <h3 class="partner-name-enhanced">مؤسسة الإبداع التقني</h3>
+                        <p class="partner-description-enhanced">شريك في تطوير الحلول التقنية المبتكرة</p>
+                        <div class="partner-icon-enhanced">
+                            <i class="fas fa-handshake text-white text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="partner-card-enhanced">
+                        <div class="partner-logo-container-enhanced">
+                            <div class="placeholder-logo">
+                                <i class="fas fa-code text-4xl text-gray-400"></i>
+                            </div>
+                        </div>
+                        <h3 class="partner-name-enhanced">شركة التطوير الرقمي</h3>
+                        <p class="partner-description-enhanced">متخصصة في تطوير البرمجيات والحلول الرقمية</p>
+                        <div class="partner-icon-enhanced">
+                            <i class="fas fa-handshake text-white text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="partner-card-enhanced">
+                        <div class="partner-logo-container-enhanced">
+                            <div class="placeholder-logo">
+                                <i class="fas fa-laptop text-4xl text-gray-400"></i>
+                            </div>
+                        </div>
+                        <h3 class="partner-name-enhanced">معهد المستقبل للتكنولوجيا</h3>
+                        <p class="partner-description-enhanced">معهد متخصص في تدريب التقنيات المستقبلية</p>
+                        <div class="partner-icon-enhanced">
+                            <i class="fas fa-handshake text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold gradient-text text-center mb-12 arabic-text">تواصل معنا</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 arabic-text">معلومات التواصل</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4 space-x-reverse">
+                                    <i class="fas fa-phone text-purple-600 text-xl"></i>
+                                    <span class="text-lg">+962791087449</span>
+                                </div>
+                                <div class="flex items-center space-x-4 space-x-reverse">
+                                    <i class="fas fa-envelope text-purple-600 text-xl"></i>
+                                    <span class="text-lg">baderahusban@gmail.com</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 arabic-text">تابعنا على</h3>
+                            <div class="flex space-x-4 space-x-reverse">
+                                <a href="#" class="social-icon bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">
+                                    <i class="fab fa-facebook-f text-xl"></i>
+                                </a>
+                                <a href="#" class="social-icon bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition-colors">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#" class="social-icon bg-blue-800 text-white p-3 rounded-full hover:bg-blue-900 transition-colors">
+                                    <i class="fab fa-linkedin-in text-xl"></i>
+                                </a>
+                                <a href="#" class="social-icon bg-green-600 text-white p-3 rounded-full hover:bg-green-700 transition-colors">
+                                    <i class="fas fa-users text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="gradient-bg text-white py-12">
+            <div class="container mx-auto px-4 text-center">
+                <div class="flex items-center justify-center space-x-4 space-x-reverse mb-6">
+                    <img src="./assets/raqeem-logo.jpeg" alt="شعار رقيم" class="h-12 w-12 rounded-full">
+                    <h3 class="text-2xl font-bold">منصة رقيم</h3>
+                </div>
+                <p class="text-lg mb-6 arabic-text">مبادرة لنشر الوعي بالتقنية وتمكين الشباب</p>
+                <p class="text-sm opacity-75">© 2024 منصة رقيم. جميع الحقوق محفوظة.</p>
+            </div>
+        </footer>
+
+        <!-- Video Modal -->
+        <div id="video-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center">
+            <div class="bg-white rounded-lg p-6 max-w-4xl w-full mx-4">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="text-xl font-bold arabic-text"></h3>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div id="modal-content" class="video-embed">
+                    <!-- Video content will be inserted here -->
+                </div>
+                <div class="mt-4 text-center">
+                    <a id="youtube-link" href="#" target="_blank" class="text-blue-600 hover:text-blue-800">
+                        <i class="fab fa-youtube mr-2"></i>مشاهدة على يوتيوب
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
 </html>
+
