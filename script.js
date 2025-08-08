@@ -69,7 +69,7 @@ async function initYouTubeGrid({ channelId, apiKey, maxResults = 9 }) {
       card.setAttribute("data-thumb", (thumb && thumb.url) || "");
       card.innerHTML = `
         <div class="thumb" style="position:relative; aspect-ratio:16/9; overflow:hidden;">
-          <img src="${thumb.url || ""}" alt="${title}" style="width:100%; height:100%; object-fit:cover;">
+          <img src="${thumb.url || ""}" alt="${title}" loading="lazy" decoding="async" style="width:100%; height:100%; object-fit:cover;">
           <button class="play-btn" type="button" aria-label="تشغيل الفيديو" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); border:none; background:rgba(0,0,0,0.55); color:#fff; padding:14px 18px; border-radius:999px; font-size:18px; cursor:pointer;">▶</button>
         </div>
         <h4 class="video-title">${title}</h4>
@@ -185,4 +185,123 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(()=>span.remove(), 600);
     });
   });
+});
+
+
+/* === Pro Animations Pack JS === */
+document.addEventListener('DOMContentLoaded', () => {
+  // Scroll progress
+  const bar = document.getElementById('scroll-progress');
+  const onScroll = () => {
+    const s = window.scrollY;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    const p = Math.max(0, Math.min(1, s / (dh || 1)));
+    bar.style.width = (p*100) + '%';
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Magnetic button hover (view-all only to be safe)
+  document.querySelectorAll('.view-all-btn').forEach(btn => {
+    let rafId = null;
+    btn.addEventListener('mousemove', e => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - (r.left + r.width/2);
+      const y = e.clientY - (r.top + r.height/2);
+      const tx = (x / r.width) * 10;
+      const ty = (y / r.height) * 10;
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(()=>{
+        btn.style.transform = `translate(${tx}px, ${ty}px)`;
+      });
+    });
+    btn.addEventListener('mouseleave', ()=>{
+      cancelAnimationFrame(rafId);
+      btn.style.transform = 'translate(0,0)';
+    });
+  });
+
+  // Tilt effect for cards
+  const tiltEls = document.querySelectorAll('.program-card, .team-member, .trainer-card, .partner-card, .video-card');
+  tiltEls.forEach(el => {
+    el.classList.add('tilt');
+    let raf = null;
+    function handleMove(e){
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      const rx = (y * -6).toFixed(2);
+      const ry = (x * 6).toFixed(2);
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(()=>{
+        el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+      });
+    }
+    function reset(){ el.style.transform='translateY(0)'; }
+    el.addEventListener('mousemove', handleMove);
+    el.addEventListener('mouseleave', reset);
+  });
+
+  // Nav underline indicator
+  const nav = document.querySelector('.nav-menu');
+  if(nav){
+    const underline = document.createElement('div');
+    underline.className = 'nav-underline';
+    nav.appendChild(underline);
+    const items = nav.querySelectorAll('.nav-link');
+    function moveUnderline(el){
+      const r = el.getBoundingClientRect();
+      const nr = nav.getBoundingClientRect();
+      underline.style.left = (r.left - nr.left) + 'px';
+      underline.style.width = r.width + 'px';
+    }
+    items.forEach(a=>{
+      a.addEventListener('mouseenter', ()=>moveUnderline(a));
+      a.addEventListener('focus', ()=>moveUnderline(a));
+    });
+    const active = nav.querySelector('.nav-link.active') || items[0];
+    if(active) moveUnderline(active);
+    nav.addEventListener('mouseleave', ()=>{ underline.style.width='0px'; });
+  }
+
+  // Particles in hero (lightweight)
+  const hero = document.querySelector('.hero');
+  if(hero){
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particles';
+    hero.style.position = 'relative';
+    hero.appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    let w,h, dpr = Math.min(2, window.devicePixelRatio || 1);
+    const particles = Array.from({length: 45}, ()=>({x:0,y:0,vx:0,vy:0,s:0, a: Math.random()*Math.PI*2}));
+    function resize(){
+      w = canvas.width = hero.clientWidth * dpr;
+      h = canvas.height = hero.clientHeight * dpr;
+      canvas.style.width = hero.clientWidth + 'px';
+      canvas.style.height = hero.clientHeight + 'px';
+    }
+    function reset(p){
+      p.x = Math.random()*w; p.y = Math.random()*h;
+      const sp = .2 + Math.random()*.8;
+      p.vx = Math.cos(p.a)*sp; p.vy = Math.sin(p.a)*sp;
+      p.s = 1 + Math.random()*2;
+    }
+    particles.forEach(reset);
+    resize();
+    window.addEventListener('resize', resize);
+    let last = performance.now();
+    function tick(now){
+      const dt = Math.min(32, now - last); last = now;
+      ctx.clearRect(0,0,w,h);
+      ctx.globalAlpha = .6;
+      ctx.fillStyle = '#ffffff';
+      particles.forEach(p=>{
+        p.x += p.vx*dt; p.y += p.vy*dt;
+        if(p.x<0||p.x>w||p.y<0||p.y>h) reset(p);
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
+      });
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
 });
