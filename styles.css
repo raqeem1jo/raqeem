@@ -25,11 +25,12 @@ body {
 
 /* Header Styles */
 .header {
+    position: static;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    
+    
+    
+    
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -892,7 +893,7 @@ body {
 }
 
 /* Section anchor offset for fixed header */
-section{ scroll-margin-top: 90px; }
+section{  }
 
 /* Magnetic buttons (applies to .view-all-btn) */
 .view-all-btn{ will-change: transform; transition: transform .15s ease; }
@@ -984,12 +985,42 @@ img, video{ max-width:100%; height:auto; display:block; }
 :root{ --header-h: 80px; }
 
 /* Body padding equals header height + safe area */
-body{ padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px)); }
+body{  }
 
 /* Anchor offset for fixed header */
-section{ scroll-margin-top: calc(var(--header-h) + 10px); }
+section{  }
 
 /* Mobile nav menu should start below header, not under it */
 @media (max-width: 768px){
-  .nav-menu{ top: var(--header-h) !important; }
+  .nav-menu{ top: 0; }
+}
+
+
+/* === Compact Mobile Menu === */
+@media (max-width: 768px){
+  .navbar{ padding: .5rem 0; }
+  .nav-container{ padding: 0 16px; }
+  .logo{ width: 32px; height: 32px; }
+  .nav-logo .logo-text{ font-size: 1.1rem; }
+
+  .nav-menu{
+    top: 0 !important;
+    padding: .5rem 0 !important;
+    gap: 0 !important;
+    max-height: 70vh;
+    overflow-y: auto;
+    background-color: rgba(102,126,234,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.22);
+  }
+  .nav-menu li{ margin: .15rem 0 !important; }
+  .nav-link{
+    padding: .6rem 1rem !important;
+    font-size: .95rem !important;
+    line-height: 1.2;
+    display:block;
+  }
+  .hamburger .bar{ width: 22px; height: 3px; margin: 3px 0; }
 }

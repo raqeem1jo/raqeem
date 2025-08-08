@@ -343,33 +343,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/* === Header Overlay Fix JS === */
-(function(){
-  function setHeaderHeightVar(){
-    var header = document.querySelector('.header');
-    if(!header) return;
-    var h = header.offsetHeight || 80;
-    document.documentElement.style.setProperty('--header-h', h + 'px');
-  }
-  setHeaderHeightVar();
-  window.addEventListener('resize', setHeaderHeightVar, {passive:true});
-  window.addEventListener('orientationchange', setHeaderHeightVar);
-
-  // Smooth scroll with offset for fixed header
-  document.querySelectorAll('.nav-link[href^="#"]').forEach(function(link){
-    link.addEventListener('click', function(e){
-      var id = this.getAttribute('href').slice(1);
-      var target = document.getElementById(id);
-      if(target){
-        e.preventDefault();
-        var h = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 80;
-        var rect = target.getBoundingClientRect();
-        var absoluteY = window.pageYOffset + rect.top - (h + 6);
-        window.scrollTo({ top: absoluteY, behavior: 'smooth' });
-      }
-    });
-  });
-
-  // Recalculate after images/fonts load
-  window.addEventListener('load', setHeaderHeightVar);
-})();
