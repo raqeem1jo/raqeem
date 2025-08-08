@@ -617,7 +617,7 @@ body {
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: var(--header-h);
         flex-direction: column;
         background-color: rgba(102, 126, 234, 0.95);
         width: 100%;
@@ -977,4 +977,19 @@ img, video{ max-width:100%; height:auto; display:block; }
     animation: phonePulse 2.2s ease-out infinite;
   }
   .footer-call-float i{ font-size:1rem; }
+}
+
+
+/* === Header Overlay Fix (mobile-safe) === */
+:root{ --header-h: 80px; }
+
+/* Body padding equals header height + safe area */
+body{ padding-top: calc(var(--header-h) + env(safe-area-inset-top, 0px)); }
+
+/* Anchor offset for fixed header */
+section{ scroll-margin-top: calc(var(--header-h) + 10px); }
+
+/* Mobile nav menu should start below header, not under it */
+@media (max-width: 768px){
+  .nav-menu{ top: var(--header-h) !important; }
 }
