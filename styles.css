@@ -777,3 +777,103 @@ body {
 }
 
 
+/* === Raqeem Polish Pack === */
+
+/* CSS Variables for theme */
+:root{
+  --primary:#667eea;
+  --secondary:#764ba2;
+  --text:#333;
+  --muted:#666;
+  --shadow:0 10px 30px rgba(0,0,0,.1);
+  --shadow-lg:0 20px 50px rgba(0,0,0,.15);
+}
+
+/* Animated gradient header (subtle) */
+.header{
+  background: linear-gradient(135deg,var(--primary),var(--secondary));
+  background-size: 200% 200%;
+  animation: headerGradient 18s ease infinite;
+  backdrop-filter: saturate(120%) blur(4px);
+}
+@keyframes headerGradient{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Glass & lift effects */
+.program-card,
+.team-member,
+.trainer-card,
+.partner-card,
+.video-card{
+  backdrop-filter: saturate(120%) blur(6px);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.program-card:hover,
+.team-member:hover,
+.trainer-card:hover,
+.partner-card:hover,
+.video-card:hover{
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hero subtle sparkles */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(transparent 0 45%, rgba(255,255,255,.07) 55%) 0 0/40px 40px,
+    radial-gradient(transparent 0 45%, rgba(255,255,255,.05) 55%) 20px 20px/50px 50px;
+  mix-blend-mode:screen;
+  opacity:.4;
+}
+
+/* Social link glow */
+.social-link{
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+.social-link:hover{
+  box-shadow: 0 14px 32px rgba(0,0,0,.18);
+}
+
+/* Reveal on scroll */
+.reveal{
+  opacity:0;
+  transform: translateY(24px) scale(.98);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.show{
+  opacity:1;
+  transform: none;
+}
+
+/* Video card play button style */
+.video-card .thumb{ position:relative; }
+.video-card .play-btn{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  border:none; background:rgba(0,0,0,.55); color:#fff;
+  padding:14px 18px; border-radius:999px; font-size:18px; cursor:pointer;
+  transition: transform .2s ease, background .2s ease;
+}
+.video-card:hover .play-btn{ transform:translate(-50%,-50%) scale(1.06); background:rgba(0,0,0,.65); }
+
+/* Buttons ripple container */
+.view-all-btn{ position:relative; overflow:hidden; }
+.view-all-btn .ripple{
+  position:absolute; border-radius:50%; transform:scale(0);
+  animation:ripple .6s linear; background:rgba(255,255,255,.35);
+}
+@keyframes ripple{ to{ transform:scale(10); opacity:0; }}
+
+/* Active nav item (scrollspy) */
+.nav-link.active{ background: rgba(255,255,255,.18); color:#fff; }
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+}

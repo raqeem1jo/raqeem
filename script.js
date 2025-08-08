@@ -1,307 +1,188 @@
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
-
-hamburger.addEventListener('click', () => {
+if (hamburger && navMenu) {
+  hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+  });
+  document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
-}));
-
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Statistics Counter Animation
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat-number');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const increment = target / 100;
-        let current = 0;
-        
-        const updateCounter = () => {
-            if (current < target) {
-                current += increment;
-                counter.textContent = Math.ceil(current);
-                setTimeout(updateCounter, 20);
-            } else {
-                counter.textContent = target;
-            }
-        };
-        
-        updateCounter();
-    });
+  }));
 }
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Statistics Counters
+function animateCounter(el) {
+  const target = +el.getAttribute('data-target');
+  const duration = 1500;
+  const start = 0;
+  const startTime = performance.now();
+  function tick(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const value = Math.floor(start + progress * (target - start));
+    el.textContent = value.toLocaleString('ar-EG');
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            
-            // Trigger counter animation when statistics section is visible
-            if (entry.target.classList.contains('statistics')) {
-                animateCounters();
-            }
-        }
-    });
-}, observerOptions);
-
-// Observe elements for fade-in animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.program-card, .team-member, .trainer-card, .partner-card, .video-card, .statistics');
-    
-    animatedElements.forEach(el => {
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
+  document.querySelectorAll('.stat-number').forEach(el => animateCounter(el));
 });
 
-// Platform Video Category Tabs
-const tabButtons = document.querySelectorAll('.tab-btn');
-const videoGrids = document.querySelectorAll('.video-grid');
+/** =====================
+ * YouTube Grid Loader
+ * ===================== */
+async function initYouTubeGrid({ channelId, apiKey, maxResults = 9 }) {
+  try {
+    const chRes = await fetch(
+      `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${apiKey}`
+    );
+    const chData = await chRes.json();
+    const uploadsId = chData.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+    if (!uploadsId) throw new Error("تعذر الحصول على قائمة الرفع للقناة.");
 
-tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Remove active class from all buttons
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Add active class to clicked button
-        button.classList.add('active');
-        
-        // Hide all video grids
-        videoGrids.forEach(grid => grid.classList.add('hidden'));
-        
-        // Show selected video grid
-        const targetCategory = button.getAttribute('data-category');
-        const targetGrid = document.getElementById(targetCategory);
-        if (targetGrid) {
-            targetGrid.classList.remove('hidden');
-        }
-    });
-});
+    const plRes = await fetch(
+      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsId}&maxResults=${maxResults}&key=${apiKey}`
+    );
+    const plData = await plRes.json();
+    const items = (plData && plData.items) || [];
 
-// View All Videos Button
-const viewAllBtn = document.querySelector('.view-all-btn');
-if (viewAllBtn) {
-    viewAllBtn.addEventListener('click', () => {
-        // Show all video grids
-        videoGrids.forEach(grid => {
-            grid.classList.remove('hidden');
-        });
-        
-        // Hide the view all button
-        viewAllBtn.style.display = 'none';
-        
-        // Update platform note
-        const platformNote = document.querySelector('.platform-note');
-        if (platformNote) {
-            platformNote.textContent = 'جميع الفيديوهات معروضة الآن. بعض هذه الفيديوهات من مبادرة رقيم وأخرى من الإنترنت لدعم رحلة التعلم.';
-        }
+    const container = document.getElementById("youtube-grid");
+    if (!container) return;
+    container.innerHTML = "";
+
+    if (!items.length) {
+      container.innerHTML = '<p class="error" style="text-align:center">لا يوجد فيديوهات حالياً.</p>';
+      return;
+    }
+
+    items.forEach(item => {
+      const { title, resourceId, thumbnails } = item.snippet;
+      const videoId = resourceId.videoId;
+      const thumb = (thumbnails && (thumbnails.medium || thumbnails.high || thumbnails.default)) || {};
+      const card = document.createElement("div");
+      card.className = "video-card";
+      card.setAttribute("data-videoid", videoId);
+      card.setAttribute("data-thumb", (thumb && thumb.url) || "");
+      card.innerHTML = `
+        <div class="thumb" style="position:relative; aspect-ratio:16/9; overflow:hidden;">
+          <img src="${thumb.url || ""}" alt="${title}" style="width:100%; height:100%; object-fit:cover;">
+          <button class="play-btn" type="button" aria-label="تشغيل الفيديو" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); border:none; background:rgba(0,0,0,0.55); color:#fff; padding:14px 18px; border-radius:999px; font-size:18px; cursor:pointer;">▶</button>
+        </div>
+        <h4 class="video-title">${title}</h4>
+      `;
+      card.querySelector(".thumb").addEventListener("click", () => playInCard(videoId, card));
+      card.querySelector(".play-btn").addEventListener("click", (e) => { e.stopPropagation(); playInCard(videoId, card); });
+      container.appendChild(card);
     });
+  } catch (err) {
+    console.error(err);
+    const container = document.getElementById("youtube-grid");
+    if (container) container.innerHTML = `<p class="error" style="text-align:center">تعذر جلب الفيديوهات الآن.</p>`;
+  }
 }
 
-// Video Card Click Handler (placeholder for future video modal)
-document.querySelectorAll('.video-card').forEach(card => {
-    card.addEventListener('click', () => {
-        // Placeholder for video modal or redirect
-        console.log('Video clicked:', card.querySelector('.video-title').textContent);
-        
-        // Add a visual feedback
-        card.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            card.style.transform = '';
-        }, 150);
+/** =====================
+ * Play In-Card YouTube
+ * ===================== */
+function playInCard(videoId, cardEl) {
+  try {
+    // stop other playing cards
+    document.querySelectorAll('.video-card.is-playing').forEach(el => {
+      if (el !== cardEl) revertCard(el);
     });
-});
-
-// Header background change on scroll
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(102, 126, 234, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
-    } else {
-        header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
-        header.style.backdropFilter = 'none';
-    }
-});
-
-// Parallax effect for hero section
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroLogo = document.querySelector('.hero-logo');
-    if (heroLogo) {
-        heroLogo.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// Add loading animation to cards on hover
-document.querySelectorAll('.program-card, .team-member, .trainer-card, .partner-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transition = 'all 0.3s ease';
-    });
-});
-
-// Social links hover effect
-document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        link.style.transform = 'translateY(-3px) scale(1.1)';
-    });
-    
-    link.addEventListener('mouseleave', () => {
-        link.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Form validation (if contact form is added later)
-function validateForm(form) {
-    const inputs = form.querySelectorAll('input[required], textarea[required]');
-    let isValid = true;
-    
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            input.classList.add('error');
-            isValid = false;
-        } else {
-            input.classList.remove('error');
-        }
-    });
-    
-    return isValid;
+    const thumb = cardEl.querySelector('.thumb');
+    if (!thumb) return;
+    thumb.innerHTML = '';
+    thumb.style.position = 'relative';
+    if (!thumb.style.aspectRatio) thumb.style.aspectRatio = '16/9';
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    iframe.title = 'YouTube video player';
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+    iframe.setAttribute('allowfullscreen', 'true');
+    iframe.style.position = 'absolute';
+    iframe.style.inset = '0';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    thumb.appendChild(iframe);
+    cardEl.classList.add('is-playing');
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-// Add ripple effect to buttons
-document.querySelectorAll('.view-all-btn, .tab-btn').forEach(button => {
-    button.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.classList.add('ripple');
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-});
-
-// Add CSS for ripple effect
-const style = document.createElement('style');
-style.textContent = `
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        transform: scale(0);
-        animation: ripple-animation 0.6s linear;
-        pointer-events: none;
-    }
-    
-    @keyframes ripple-animation {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-    
-    .tab-btn, .view-all-btn {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .error {
-        border-color: #e74c3c !important;
-        box-shadow: 0 0 5px rgba(231, 76, 60, 0.3) !important;
-    }
-`;
-document.head.appendChild(style);
-
-// Lazy loading for images (if more images are added)
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
+function revertCard(cardEl) {
+  try {
+    const imgSrc = cardEl.getAttribute('data-thumb');
+    const title = cardEl.querySelector('.video-title')?.textContent || '';
+    const thumb = cardEl.querySelector('.thumb');
+    if (!thumb) return;
+    thumb.innerHTML = `
+      <img src="${imgSrc || ''}" alt="${title}" style="width:100%; height:100%; object-fit:cover;">
+      <button class="play-btn" type="button" aria-label="تشغيل الفيديو" style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); border:none; background:rgba(0,0,0,0.55); color:#fff; padding:14px 18px; border-radius:999px; font-size:18px; cursor:pointer;">▶</button>
+    `;
+    thumb.querySelector(".play-btn").addEventListener("click", (e) => { e.stopPropagation(); playInCard(cardEl.getAttribute('data-videoid'), cardEl); });
+    thumb.addEventListener("click", () => playInCard(cardEl.getAttribute('data-videoid'), cardEl));
+    cardEl.classList.remove('is-playing');
+  } catch (e) {
+    console.error(e);
+  }
 }
 
-// Performance optimization: Debounce scroll events
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
 
-// Apply debounce to scroll events
-const debouncedScrollHandler = debounce(() => {
-    // Scroll-based animations can be added here
-}, 10);
-
-window.addEventListener('scroll', debouncedScrollHandler);
-
-// Initialize everything when DOM is loaded
+/* === Raqeem Polish Pack JS === */
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('مبادرة رقيم - Website loaded successfully!');
-    
-    // Add any initialization code here
-    
-    // Preload critical images
-    const criticalImages = ['logo.png'];
-    criticalImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
+  // Add reveal class to major blocks
+  const revealTargets = [
+    ...document.querySelectorAll('section, .program-card, .team-member, .trainer-card, .partner-card, .video-card')
+  ];
+  revealTargets.forEach(el => el.classList.add('reveal'));
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+  }, {threshold: .12, rootMargin: '0px 0px -10% 0px'});
+  revealTargets.forEach(el=>io.observe(el));
+
+  // Scrollspy for navbar
+  const sections = ['home','programs','team','trainers','platform','partners','contact']
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+  const links = Array.from(document.querySelectorAll('.nav-link'));
+  const spy = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id = e.target.id;
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
     });
+  }, {threshold: .6});
+  sections.forEach(s=>spy.observe(s));
+
+  // Parallax hero image (very subtle)
+  const heroImg = document.querySelector('.hero-logo');
+  if(heroImg){
+    window.addEventListener('scroll', () => {
+      const y = Math.min(20, window.scrollY / 40);
+      heroImg.style.transform = `translateY(${y}px)`;
+    }, {passive:true});
+  }
+
+  // Ripple effect on primary buttons
+  document.querySelectorAll('.view-all-btn').forEach(btn => {
+    btn.addEventListener('click', function(e){
+      const span = document.createElement('span');
+      span.className = 'ripple';
+      const rect = this.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      span.style.width = span.style.height = size + 'px';
+      span.style.left = (e.clientX - rect.left - size/2) + 'px';
+      span.style.top = (e.clientY - rect.top - size/2) + 'px';
+      this.appendChild(span);
+      setTimeout(()=>span.remove(), 600);
+    });
+  });
 });
-
-// Service Worker registration (for future PWA features)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Service worker can be registered here for offline functionality
-    });
-}
-

@@ -294,89 +294,18 @@
     </section>
 
     <!-- Platform Section -->
+    
+    <!-- Platform Section (Dynamic YouTube Grid) -->
     <section id="platform" class="platform">
         <div class="container">
             <h2 class="section-title">منصة رقيم</h2>
-            <div class="platform-content">
-                <div class="video-categories">
-                    <div class="category-tabs">
-                        <button class="tab-btn active" data-category="digital-skills">المهارات الرقمية</button>
-                        <button class="tab-btn" data-category="ai">الذكاء الاصطناعي</button>
-                        <button class="tab-btn" data-category="cybersecurity">الأمن السيبراني</button>
-                        <button class="tab-btn" data-category="programming">البرمجة</button>
-                    </div>
-                    
-                    <div class="video-grid" id="digital-skills">
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/JEhCJwMFTRg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">الدرس (1): الإنترنت والشبكة العنكبوتية</h4>
-                        </div>
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/5TeJ5EeSJyw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">أهمية تعزيز المهارات الرقمية لدى الأبناء</h4>
-                        </div>
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/CWPpEt3bDY4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">الدرس (1): شبكة الإنترنت</h4>
-                        </div>
-                    </div>
-                    
-                    <div class="video-grid hidden" id="ai">
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/06h470AiBZ4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">كورس مقدمة عن أساسيات البرمجة للمبتدئين</h4>
-                        </div>
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/Asxu8gO1Jt4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">كيف تتعلم مجال الأمن السيبراني؟</h4>
-                        </div>
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/nJpw8HqiCqc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">ما هو "الأمن السيبراني"؟</h4>
-                        </div>
-                    </div>
-                    
-                    <div class="video-grid hidden" id="cybersecurity">
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/Asxu8gO1Jt4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">كيف تتعلم مجال الأمن السيبراني؟</h4>
-                        </div>
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/nJpw8HqiCqc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">ما هو "الأمن السيبراني"؟</h4>
-                        </div>
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/mdcLTL6Ptc8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">مقدمة في الامن السيبراني</h4>
-                        </div>
-                    </div>
-                    
-                    <div class="video-grid hidden" id="programming">
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/9ndH9Qo05F4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">What is programming and how to learn to code?</h4>
-                        </div>
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/KGjFu_2OLhk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">كيف تتعلم البرمجة للمبتدئين ببساطة</h4>
-                        </div>
-                        <div class="video-card">
-                            <iframe src="https://www.youtube.com/embed/06h470AiBZ4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <h4 class="video-title">كورس مقدمة عن أساسيات البرمجة للمبتدئين</h4>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="view-all-container">
-                    <button class="view-all-btn">مشاهدة الكل</button>
-                </div>
-                
-                <p class="platform-note">
-                    بعض هذه الفيديوهات من مبادرة رقيم وأخرى من الإنترنت لدعم رحلة التعلم.
-                </p>
+            <div id="youtube-grid" class="video-grid"></div>
+            <div class="view-all-container">
+                <a class="view-all-btn" href="https://www.youtube.com/@raqeem-jo/videos" target="_blank" rel="noopener">مشاهدة الكل على يوتيوب</a>
             </div>
         </div>
     </section>
+
 
     <!-- Footer -->
     <footer id="contact" class="footer">
@@ -433,8 +362,22 @@
     </footer>
 
     <script src="script.js"></script>
+  <script src="yt-config.js"></script>
+<script>
+  (function(){
+    const cfg = (window.YT_CONFIG || {});
+    cfg.channelId = cfg.channelId || "UCIdL3ni3y02jhIsLO7Rjc2A";
+    cfg.maxResults = cfg.maxResults || 9;
+    if (!cfg.apiKey) {
+      const grid = document.getElementById("youtube-grid");
+      if (grid) grid.innerHTML = '<p class="error" style="text-align:center">الرجاء إعداد مفتاح YouTube API (yt-config.js).</p>';
+    } else {
+      initYouTubeGrid(cfg);
+    }
+  })();
+</script>
 </body>
 </html>
 
 
-                        <p><i class="fas fa-phone"></i> 0791087449</p>
+                        <p><i class="fas fa-phone"></i> 0791087449</p> 
