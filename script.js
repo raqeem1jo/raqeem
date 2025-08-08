@@ -305,3 +305,39 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(tick);
   }
 });
+
+
+// Counters on visibility (once)
+document.addEventListener('DOMContentLoaded', () => {
+  const counters = document.querySelectorAll('.stat-number');
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        const el = e.target;
+        const target = +el.getAttribute('data-target');
+        const duration = 1600;
+        const start = 0;
+        const startTime = performance.now();
+        function tick(now){
+          const progress = Math.min((now - startTime) / duration, 1);
+          const value = Math.floor(start + progress * (target - start));
+          el.textContent = value.toLocaleString('ar-EG');
+          if(progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        obs.unobserve(el);
+      }
+    });
+  }, {threshold:.5});
+  counters.forEach(c => io.observe(c));
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Add floating call pill on mobile
+  const pill = document.createElement('a');
+  pill.href = 'tel:0791087449';
+  pill.className = 'footer-call-float';
+  pill.innerHTML = '<i class="fas fa-phone"></i> اتصل الآن';
+  document.body.appendChild(pill);
+});

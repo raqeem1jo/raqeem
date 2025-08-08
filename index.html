@@ -294,8 +294,6 @@
         </div>
     </section>
 
-    <!-- Platform Section -->
-    
     <!-- Platform Section (Dynamic YouTube Grid) -->
     <section id="platform" class="platform">
         <div class="container">
@@ -306,7 +304,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Footer -->
     <footer id="contact" class="footer">
@@ -334,7 +331,6 @@
                     <div class="contact-info">
                         <p><i class="fas fa-map-marker-alt"></i> المفرق، الأردن</p>
                         <p><i class="fas fa-envelope"></i> baderahusban@gmail.com</p>
-                    
                         <a class="footer-phone" href="tel:0791087449"><i class="fas fa-phone"></i> 0791087449</a>
                     </div>
                 </div>
@@ -365,19 +361,19 @@
     </footer>
 
     <script src="script.js"></script>
-  <script src="yt-config.js"></script>
-<script>
-  (function(){
-    const cfg = (window.YT_CONFIG || {});
-    cfg.channelId = cfg.channelId || "UCIdL3ni3y02jhIsLO7Rjc2A";
-    cfg.maxResults = cfg.maxResults || 9;
-    if (!cfg.apiKey) {
-      const grid = document.getElementById("youtube-grid");
-      if (grid) grid.innerHTML = '<p class="error" style="text-align:center">الرجاء إعداد مفتاح YouTube API (yt-config.js).</p>';
-    } else {
-      initYouTubeGrid(cfg);
-    }
-  })();
-</script>
+    <script src="yt-config.js"></script>
+    <script>
+      (function(){
+        const cfg = (window.YT_CONFIG || {});
+        cfg.channelId = cfg.channelId || "UCIdL3ni3y02jhIsLO7Rjc2A";
+        cfg.maxResults = cfg.maxResults || 9;
+        if (!cfg.apiKey) {
+          const grid = document.getElementById("youtube-grid");
+          if (grid) grid.innerHTML = '<p class="error" style="text-align:center">الرجاء إعداد مفتاح YouTube API (yt-config.js).</p>';
+        } else {
+          initYouTubeGrid(cfg);
+        }
+      })();
+    </script>
 </body>
 </html>

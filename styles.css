@@ -943,3 +943,38 @@ section{ scroll-margin-top: 90px; }
 @media (prefers-reduced-motion: reduce){
   .footer-phone{ animation: none; }
 }
+
+/* === Mobile Perfect Tweaks === */
+img, video{ max-width:100%; height:auto; display:block; }
+.member-photo-img, .trainer-photo-img, .partner-logo-img{ width:100%; height:auto; object-fit:contain; }
+.hero{ min-height: 90vh; }
+.hero-container{ gap:2rem; }
+.logo{ width:44px; height:44px; }
+.nav-menu a{ font-size:1rem; }
+
+/* Ensure iframes in video cards are responsive */
+.video-card iframe{ width:100%; aspect-ratio:16/9; height:auto; display:block; }
+
+/* Tighter paddings on small screens */
+@media (max-width: 768px){
+  .hero{ padding: 110px 0 64px; }
+  .section-title{ margin-bottom: 2rem; }
+  .programs, .team, .trainers, .partners, .platform{ padding: 64px 0; }
+  .nav-logo .logo-text{ font-size:1.25rem; }
+  .video-title{ font-size:1rem; }
+  .footer .footer-content{ gap:1.2rem; }
+}
+
+/* Floating call pill on mobile (optional visible) */
+@media (max-width: 768px){
+  .footer-call-float{
+    position: fixed; right: 16px; bottom: 18px; z-index: 1200;
+    display: inline-flex; align-items: center; gap:.5rem;
+    background: linear-gradient(135deg, #00E5FF, #7C4DFF);
+    color:#fff; padding:.8rem 1rem; border-radius: 999px;
+    box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    text-decoration:none; font-weight:700;
+    animation: phonePulse 2.2s ease-out infinite;
+  }
+  .footer-call-float i{ font-size:1rem; }
+}
