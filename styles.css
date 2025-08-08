@@ -920,3 +920,26 @@ section{ scroll-margin-top: 90px; }
 
 /* Video iframe rounding */
 .video-card iframe{ border-radius: 12px; overflow:hidden; }
+
+
+/* Footer Phone Pill */
+.footer-phone{
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-size:1.1rem; font-weight:700; color:#fff; text-decoration:none;
+  padding:.7rem 1.2rem; border-radius:999px;
+  background: linear-gradient(135deg, #00E5FF, #7C4DFF);
+  box-shadow: 0 10px 25px rgba(0,0,0,.15), 0 0 0 0 rgba(102,126,234,.4);
+  animation: phonePulse 2.2s ease-out infinite;
+  margin-top:.4rem; display:inline-block;
+}
+.footer-phone i{ font-size:1.05rem; }
+.footer-phone:hover{ transform: translateY(-2px); box-shadow:0 14px 32px rgba(0,0,0,.18), 0 0 0 0 rgba(102,126,234,.4); }
+@keyframes phonePulse{
+  0%{ box-shadow:0 10px 25px rgba(0,0,0,.15), 0 0 0 0 rgba(102,126,234,.45); }
+  70%{ box-shadow:0 10px 25px rgba(0,0,0,.15), 0 0 0 18px rgba(102,126,234,0); }
+  100%{ box-shadow:0 10px 25px rgba(0,0,0,.15), 0 0 0 0 rgba(102,126,234,0); }
+}
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .footer-phone{ animation: none; }
+}
