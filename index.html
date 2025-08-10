@@ -1,369 +1,595 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مبادرة رقيم - مبادرة شبابية تقنية</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-<div id="scroll-progress"></div>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <img src="logo.png" alt="مبادرة رقيم" class="logo">
-                    <span class="logo-text">مبادرة رقيم</span>
-                </div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="#home" class="nav-link">الرئيسية</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#programs" class="nav-link">برامجنا</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#team" class="nav-link">الفريق</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#trainers" class="nav-link">المدربون</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#platform" class="nav-link">منصة رقيم</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#partners" class="nav-link">الجهات المتعاونة</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contact" class="nav-link">تواصل معنا</a>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">مبادرة رقيم</h1>
-                <p class="hero-description">
-                    مبادرة شبابية تأسست عام 2024 لرفع الوعي بالتقنية وتعليم الشباب المهارات الرقمية، الذكاء الاصطناعي، البرمجة، الأمن السيبراني، التسويق، والعديد من الدورات والورشات.
-                </p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/people/Raqeemjo/61577884989188/" target="_blank" class="social-link">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://www.instagram.com/raqeem_jo/" target="_blank" class="social-link">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/company/raqee/" target="_blank" class="social-link">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank" class="social-link">
-                        <i class="fas fa-globe"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="logo.png" alt="مبادرة رقيم" class="hero-logo">
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="statistics">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number" data-target="4500">0</div>
-                    <div class="stat-label">أكثر من 4500 مستفيد</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="50">0</div>
-                    <div class="stat-label">أكثر من 50 دورة وورشة (وجاهية وأونلاين)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number" data-target="3">0</div>
-                    <div class="stat-label">3 برامج رئيسية</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section id="programs" class="programs">
-        <div class="container">
-            <h2 class="section-title">برامجنا</h2>
-            <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-tv"></i>
-                    </div>
-                    <h3 class="program-title">تلفزيون نشمية</h3>
-                    <p class="program-description">
-                        برنامج لطالبات المدارس لتحويل الإذاعة المدرسية إلى إعلام رقمي. بدأ في مدرسة الأميرة عالية بنت الحسين الثانوية في محافظة المفرق.
-                    </p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3 class="program-title">تمكين المدربين</h3>
-                    <p class="program-description">
-                        إعداد مدربين ضمن المبادرة لضمان الاستدامة والاستمرارية.
-                    </p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">
-                        <i class="fas fa-microphone"></i>
-                    </div>
-                    <h3 class="program-title">زاوية</h3>
-                    <p class="program-description">
-                        برنامج شبابي على إنستغرام يقدم مواضيع شبابية على شكل بودكاست.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="container">
-            <h2 class="section-title">فريق الإدارة</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="assets/team/male_1.png" alt="بدر الحسبان" class="member-photo-img">
-                    <p class="member-role">مؤسس رقيم</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/team/male_2.png" alt="شهم الحسبان" class="member-photo-img">
-                    <p class="member-role">المساعد ومنسق محافظة المفرق</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/team/female_1.png" alt="سارة المجالي" class="member-photo-img">
-                    <p class="member-role">مسؤولة المتابعة والتقييم ومنسقة جرش</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/team/female_2.png" alt="زهراء غرايبة" class="member-photo-img">
-                    <p class="member-role">منسقة عجلون</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/team/female_3.png" alt="امين المصري" class="member-photo-img">
-                    <p class="member-role">مدير برنامج زاوية</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/team/male_3.png" alt="بشار الشديفات" class="member-photo-img">
-                    <p class="member-role">مدير العمليات</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/team/female_4.png" alt="ميشيل ايوب" class="member-photo-img">
-                    <p class="member-role">منسق العلاقات</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/team/male_4.png" alt="محمد العبيدات" class="member-photo-img">
-                    <p class="member-role">منسق محافظة اربد</p>
-                </div>
-                <div class="team-member">
-                    <img src="assets/team/male_5.png" alt="سحر العموش" class="member-photo-img">
-                    <p class="member-role">ديرة برنامج نشمية</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trainers Section -->
-    <section id="trainers" class="trainers">
-        <div class="container">
-            <h2 class="section-title">المدربون المعتمدون</h2>
-            <div class="trainers-grid">
-                <!-- 11 certified trainers -->
-                <div class="trainer-card">
-                    <img src="assets/trainers/trainer_1.png" alt="بدر الحسبان" class="trainer-photo-img">
-                    <p class="trainer-specialty">تخصص المهارات التقنية و الذكاء الاصطناعي</p>
-                </div>
-                <div class="trainer-card">
-                    <img src="assets/trainers/trainer_2.png" alt="بشار الحريري" class="trainer-photo-img">
-                    <p class="trainer-specialty">الذكاء الاصطناعي</p>
-                </div>
-                <div class="trainer-card">
-                    <img src="assets/trainers/trainer_3.png" alt="سندس عليمات" class="trainer-photo-img">
-                    <p class="trainer-specialty">الأمن السيبراني</p>
-                </div>
-                <div class="trainer-card">
-                    <img src="assets/trainers/trainer_4.png" alt="عبدالله البستنجي " class="trainer-photo-img">
-                    <p class="trainer-specialty">برمجة مواقع الكترونية</p>
-                </div>
-                <div class="trainer-card">
-                    <img src="assets/trainers/trainer_5.png" alt="مريم غوشة" class="trainer-photo-img">
-                    <p class="trainer-specialty">خبيرة ذكاء اصطناعي</p>
-                </div>
-                <div class="trainer-card">
-                    <div class="trainer-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="trainer-name">عمران عقله</h3>
-                    <p class="trainer-specialty">التسويق الرقمي</p>
-                </div>
-                <div class="trainer-card">
-                    <div class="trainer-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="trainer-name">الفت قطمير</h3>
-                    <p class="trainer-specialty">الثقاافة المالية</p>
-                </div>
-                <div class="trainer-card">
-                    <div class="trainer-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="trainer-name">شهم الحسبان</h3>
-                    <p class="trainer-specialty">مدرب لغة انجليزية</p>
-                </div>
-                <div class="trainer-card">
-                    <div class="trainer-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="trainer-name">مدرب معتمد 9</h3>
-                    <p class="trainer-specialty">تحليل البيانات</p>
-                </div>
-                <div class="trainer-card">
-                    <div class="trainer-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="trainer-name">مدرب معتمد 10</h3>
-                    <p class="trainer-specialty">الحوسبة السحابية</p>
-                </div>
-                <div class="trainer-card">
-                    <div class="trainer-photo">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="trainer-name">مدرب معتمد 11</h3>
-                    <p class="trainer-specialty">إنترنت الأشياء</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section id="partners" class="partners">
-        <div class="container">
-            <h2 class="section-title">الجهات المتعاونة</h2>
-            <div class="partners-grid">
-                <div class="partner-card">
-                    <img src="assets/partners/crown_prince_foundation.jpg" alt="مؤسسة ولي العهد" class="partner-logo-img">
-                </div>
-                <div class="partner-card">
-                    <img src="assets/partners/nahno.jpg" alt="منصة نحن" class="partner-logo-img">
-                </div>
-                <div class="partner-card">
-                    <img src="assets/partners/yarmouk_university.png" alt="جامعة اليرموك" class="partner-logo-img">
-                </div>
-                <div class="partner-card">
-                    <img src="assets/partners/al_al_bayt_university.jpg" alt="جامعة ال البيت" class="partner-logo-img">
-                </div>
-                <div class="partner-card">
-                    <img src="assets/partners/american_university_madaba.png" alt="الجامعة الامريكية في مادبا" class="partner-logo-img">
-                </div>
-                <div class="partner-card">
-                    <div class="partner-logo">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="partner-name">جهة متعاونة 1</h3>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-logo">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="partner-name">جهة متعاونة 2</h3>
-                </div>
-                <div class="partner-card">
-                    <div class="partner-logo">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="partner-name">جهة متعاونة 3</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Platform Section (Dynamic YouTube Grid) -->
-    <section id="platform" class="platform">
-        <div class="container">
-            <h2 class="section-title">منصة رقيم</h2>
-            <div id="youtube-grid" class="video-grid"></div>
-            <div class="view-all-container">
-                <a class="view-all-btn" href="https://www.youtube.com/@raqeem-jo/videos" target="_blank" rel="noopener">مشاهدة الكل على يوتيوب</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 class="footer-title">مبادرة رقيم</h3>
-                    <p class="footer-description">
-                        مبادرة شبابية تقنية لرفع الوعي الرقمي وتعليم المهارات التقنية للشباب.
-                    </p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title">روابط سريعة</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#programs">برامجنا</a></li>
-                        <li><a href="#team">الفريق</a></li>
-                        <li><a href="#trainers">المدربون</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title">تواصل معنا</h3>
-                    <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> المفرق، الأردن</p>
-                        <p><i class="fas fa-envelope"></i> baderahusban@gmail.com</p>
-                        <a class="footer-phone" href="tel:0791087449"><i class="fas fa-phone"></i> 0791087449</a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3 class="footer-title">تابعنا</h3>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/people/Raqeemjo/61577884989188/" target="_blank" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/raqeem_jo/" target="_blank" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/raqee/" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank" class="social-link">
-                            <i class="fas fa-globe"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 مبادرة رقيم. جميع الحقوق محفوظة.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-    <script src="yt-config.js"></script>
-    <script>
-      (function(){
+<html dir="rtl" lang="ar">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   مبادرة رقيم - مبادرة شبابية تقنية
+  </title>
+  <link href="styles.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="assets/css/mobile-enhancements.css" rel="stylesheet"/>
+  <style>
+   /* === Injected: Mobile & Header Tweaks (GPT) === */
+:root{ --header-pad-y: 6px; --header-logo: 28px; --nav-gap: 8px; --nav-font: 13px; }
+header, .header, #header, .site-header{
+  padding-top: var(--header-pad-y) !important;
+  padding-bottom: var(--header-pad-y) !important;
+  min-height: 40px !important;
+}
+header img.logo, .header img.logo, #header img.logo, .site-header img.logo{
+  height: var(--header-logo) !important; width: auto !important;
+}
+header .logo, .header .logo, #header .logo, .site-header .logo{
+  max-height: var(--header-logo) !important;
+}
+header nav a, .header nav a, #header nav a, .site-header nav a{
+  font-size: var(--nav-font) !important;
+  padding: 6px 8px !important;
+  line-height: 1.2 !important;
+}
+@media (max-width: 768px){
+  html,body{overflow-x:hidden}
+  .container, .wrapper, .section, main, header, footer{max-width:100%; padding-left:16px; padding-right:16px;}
+  nav ul{display:flex; flex-wrap:wrap; gap: var(--nav-gap);}
+  img{max-width:100%; height:auto}
+  .grid, .row{display:grid; grid-template-columns: 1fr !important; gap:14px;}
+  .col, [class*="col-"]{width:100% !important; flex: 0 0 100% !important; max-width:100% !important;}
+  .hero{padding-top:40px !important; padding-bottom:40px !important;}
+  .section-title{font-size: clamp(18px, 5vw, 28px) !important;}
+  .card{padding:14px !important; border-radius:14px !important;}
+  .btn, button{padding:10px 14px !important; font-size:14px !important;}
+  /* Shrink header further on phones */
+  :root{ --header-pad-y: 4px; --header-logo: 22px; --nav-font: 12px; }
+}
+  </style>
+  <style>
+   /* === Injected: Smaller Navigation Menu (GPT) === */
+header nav a, .header nav a, #header nav a, .site-header nav a {
+  font-size: 12px !important;
+  padding: 4px 6px !important;
+}
+@media (max-width: 768px){
+  header nav a, .header nav a, #header nav a, .site-header nav a {
+    font-size: 11px !important;
+    padding: 3px 5px !important;
+  }
+}
+  </style>
+ </head>
+ <body>
+  <div id="scroll-progress">
+  </div>
+  <!-- Header -->
+  <header class="header">
+   <nav class="navbar">
+    <div class="nav-container">
+     <div class="nav-logo">
+      <img alt="مبادرة رقيم" class="logo" src="logo.png"/>
+      <span class="logo-text">
+       مبادرة رقيم
+      </span>
+     </div>
+     <ul class="nav-menu">
+      <li class="nav-item">
+       <a class="nav-link" href="#home">
+        الرئيسية
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#programs">
+        برامجنا
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#team">
+        الفريق
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#trainers">
+        المدربون
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#platform">
+        منصة رقيم
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#partners">
+        الجهات المتعاونة
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#contact">
+        تواصل معنا
+       </a>
+      </li>
+     </ul>
+     <div class="hamburger">
+      <span class="bar">
+      </span>
+      <span class="bar">
+      </span>
+      <span class="bar">
+      </span>
+     </div>
+    </div>
+   </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+   <div class="hero-container">
+    <div class="hero-content">
+     <h1 class="hero-title">
+      مبادرة رقيم
+     </h1>
+     <p class="hero-description">
+      مبادرة شبابية تأسست عام 2024 لرفع الوعي بالتقنية وتعليم الشباب المهارات الرقمية، الذكاء الاصطناعي، البرمجة، الأمن السيبراني، التسويق، والعديد من الدورات والورشات.
+     </p>
+     <div class="social-links">
+      <a class="social-link" href="https://www.facebook.com/people/Raqeemjo/61577884989188/" target="_blank">
+       <i class="fab fa-facebook-f">
+       </i>
+      </a>
+      <a class="social-link" href="https://www.instagram.com/raqeem_jo/" target="_blank">
+       <i class="fab fa-instagram">
+       </i>
+      </a>
+      <a class="social-link" href="https://www.linkedin.com/company/raqee/" target="_blank">
+       <i class="fab fa-linkedin-in">
+       </i>
+      </a>
+      <a class="social-link" href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank">
+       <i class="fas fa-globe">
+       </i>
+      </a>
+     </div>
+    </div>
+    <div class="hero-image">
+     <img alt="مبادرة رقيم" class="hero-logo" src="logo.png"/>
+    </div>
+   </div>
+  </section>
+  <!-- Statistics Section -->
+  <section class="statistics">
+   <div class="container">
+    <div class="stats-grid">
+     <div class="stat-item">
+      <div class="stat-number" data-target="4500">
+       0
+      </div>
+      <div class="stat-label">
+       أكثر من 4500 مستفيد
+      </div>
+     </div>
+     <div class="stat-item">
+      <div class="stat-number" data-target="50">
+       0
+      </div>
+      <div class="stat-label">
+       أكثر من 50 دورة وورشة (وجاهية وأونلاين)
+      </div>
+     </div>
+     <div class="stat-item">
+      <div class="stat-number" data-target="3">
+       0
+      </div>
+      <div class="stat-label">
+       3 برامج رئيسية
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Programs Section -->
+  <section class="programs" id="programs">
+   <div class="container">
+    <h2 class="section-title">
+     برامجنا
+    </h2>
+    <div class="programs-grid">
+     <div class="program-card">
+      <div class="program-icon">
+       <i class="fas fa-tv">
+       </i>
+      </div>
+      <h3 class="program-title">
+       تلفزيون نشمية
+      </h3>
+      <p class="program-description">
+       برنامج لطالبات المدارس لتحويل الإذاعة المدرسية إلى إعلام رقمي. بدأ في مدرسة الأميرة عالية بنت الحسين الثانوية في محافظة المفرق.
+      </p>
+     </div>
+     <div class="program-card">
+      <div class="program-icon">
+       <i class="fas fa-chalkboard-teacher">
+       </i>
+      </div>
+      <h3 class="program-title">
+       تمكين المدربين
+      </h3>
+      <p class="program-description">
+       إعداد مدربين ضمن المبادرة لضمان الاستدامة والاستمرارية.
+      </p>
+     </div>
+     <div class="program-card">
+      <div class="program-icon">
+       <i class="fas fa-microphone">
+       </i>
+      </div>
+      <h3 class="program-title">
+       زاوية
+      </h3>
+      <p class="program-description">
+       برنامج شبابي على إنستغرام يقدم مواضيع شبابية على شكل بودكاست.
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Team Section -->
+  <section class="team" id="team">
+   <div class="container">
+    <h2 class="section-title">
+     فريق الإدارة
+    </h2>
+    <div class="team-grid">
+     <div class="team-member">
+      <img alt="بدر الحسبان" class="member-photo-img" src="logo.png"/>
+      <p class="member-role">
+       مؤسس رقيم
+      </p>
+     </div>
+     <div class="team-member">
+      <img alt="شهم الحسبان" class="member-photo-img" src="logo.png"/>
+      <p class="member-role">
+       المساعد ومنسق محافظة المفرق
+      </p>
+     </div>
+     <div class="team-member">
+      <img alt="سارة المجالي" class="member-photo-img" src="logo.png"/>
+      <p class="member-role">
+       مسؤولة المتابعة والتقييم ومنسقة جرش
+      </p>
+     </div>
+     <div class="team-member">
+      <img alt="زهراء غرايبة" class="member-photo-img" src="logo.png"/>
+      <p class="member-role">
+       منسقة عجلون
+      </p>
+     </div>
+     <div class="team-member">
+      <img alt="امين المصري" class="member-photo-img" src="logo.png"/>
+      <p class="member-role">
+       مدير برنامج زاوية
+      </p>
+     </div>
+     <div class="team-member">
+      <img alt="بشار الشديفات" class="member-photo-img" src="logo.png"/>
+      <p class="member-role">
+       مدير العمليات
+      </p>
+     </div>
+     <div class="team-member">
+      <img alt="ميشيل ايوب" class="member-photo-img" src="logo.png"/>
+      <p class="member-role">
+       منسق العلاقات
+      </p>
+     </div>
+     <div class="team-member">
+      <img alt="محمد العبيدات" class="member-photo-img" src="logo.png"/>
+      <p class="member-role">
+       منسق محافظة اربد
+      </p>
+     </div>
+     <div class="team-member">
+      <img alt="سحر العموش" class="member-photo-img" src="logo.png"/>
+      <p class="member-role">
+       ديرة برنامج نشمية
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Trainers Section -->
+  <section class="trainers" id="trainers">
+   <div class="container">
+    <h2 class="section-title">
+     المدربون المعتمدون
+    </h2>
+    <div class="trainers-grid">
+     <!-- 11 certified trainers -->
+     <div class="trainer-card">
+      <img alt="مدرب" class="trainer-photo-img" decoding="async" loading="lazy" src="logo.png" style="max-height:140px;object-fit:contain;border-radius:50%;background:#f8f9fa;padding:8px;display:block;margin:0 auto;"/>
+      <p class="trainer-specialty">
+       تخصص المهارات التقنية و الذكاء الاصطناعي
+      </p>
+     </div>
+     <div class="trainer-card">
+      <img alt="مدرب" class="trainer-photo-img" decoding="async" loading="lazy" src="logo.png" style="max-height:140px;object-fit:contain;border-radius:50%;background:#f8f9fa;padding:8px;display:block;margin:0 auto;"/>
+      <p class="trainer-specialty">
+       الذكاء الاصطناعي
+      </p>
+     </div>
+     <div class="trainer-card">
+      <img alt="مدرب" class="trainer-photo-img" decoding="async" loading="lazy" src="logo.png" style="max-height:140px;object-fit:contain;border-radius:50%;background:#f8f9fa;padding:8px;display:block;margin:0 auto;"/>
+      <p class="trainer-specialty">
+       الأمن السيبراني
+      </p>
+     </div>
+     <div class="trainer-card">
+      <img alt="مدرب" class="trainer-photo-img" decoding="async" loading="lazy" src="logo.png" style="max-height:140px;object-fit:contain;border-radius:50%;background:#f8f9fa;padding:8px;display:block;margin:0 auto;"/>
+      <p class="trainer-specialty">
+       برمجة مواقع الكترونية
+      </p>
+     </div>
+     <div class="trainer-card">
+      <img alt="مدرب" class="trainer-photo-img" decoding="async" loading="lazy" src="logo.png" style="max-height:140px;object-fit:contain;border-radius:50%;background:#f8f9fa;padding:8px;display:block;margin:0 auto;"/>
+      <p class="trainer-specialty">
+       خبيرة ذكاء اصطناعي
+      </p>
+     </div>
+     <div class="trainer-card">
+      <div class="trainer-photo">
+       <i class="fas fa-user-tie">
+       </i>
+      </div>
+      <h3 class="trainer-name">
+       المدرب عدي عابد
+      </h3>
+      <p class="trainer-specialty">
+       التسويق الرقمي
+      </p>
+     </div>
+     <div class="trainer-card">
+      <div class="trainer-photo">
+       <i class="fas fa-user-tie">
+       </i>
+      </div>
+      <h3 class="trainer-name">
+       الفت قطمير
+      </h3>
+      <p class="trainer-specialty">
+       الثقاافة المالية
+      </p>
+     </div>
+     <div class="trainer-card">
+      <div class="trainer-photo">
+       <i class="fas fa-user-tie">
+       </i>
+      </div>
+      <h3 class="trainer-name">
+       شهم الحسبان
+      </h3>
+      <p class="trainer-specialty">
+       مدرب لغة انجليزية
+      </p>
+     </div>
+     <div class="trainer-card">
+      <div class="trainer-photo">
+       <i class="fas fa-user-tie">
+       </i>
+      </div>
+      <h3 class="trainer-name">
+       المدرب عدي عابد
+      </h3>
+      <p class="trainer-specialty">
+       مهارات شخصية و لينكدان
+      </p>
+     </div>
+     <div class="trainer-card">
+      <div class="trainer-photo">
+       <i class="fas fa-user-tie">
+       </i>
+      </div>
+      <h3 class="trainer-name">
+       الدكتور مهند التميمي
+      </h3>
+      <p class="trainer-specialty">
+       تنمية وقدرات
+      </p>
+     </div>
+     <div class="trainer-card">
+      <div class="trainer-photo">
+       <i class="fas fa-user-tie">
+       </i>
+      </div>
+      <h3 class="trainer-name">
+       مدرب معتمد 11
+      </h3>
+      <p class="trainer-specialty">
+       إنترنت الأشياء
+      </p>
+     </div>
+     <div class="trainer-card">
+      <img alt="مدرب" class="trainer-photo-img" decoding="async" loading="lazy" src="logo.png" style="max-height:140px;object-fit:contain;border-radius:50%;background:#f8f9fa;padding:8px;display:block;margin:0 auto;"/>
+      <h4>
+       عدي عابد
+      </h4>
+      <p>
+       مهارات شخصية و لينكدان
+      </p>
+     </div>
+     <div class="trainer-card">
+      <img alt="مدرب" class="trainer-photo-img" decoding="async" loading="lazy" src="logo.png" style="max-height:140px;object-fit:contain;border-radius:50%;background:#f8f9fa;padding:8px;display:block;margin:0 auto;"/>
+      <h4>
+       الدكتور مهند التميمي
+      </h4>
+      <p>
+       مهارات شخصية و لينكدان
+      </p>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Partners Section -->
+  <section class="partners" id="partners">
+   <div class="container">
+    <h2 class="section-title">
+     الجهات المتعاونة
+    </h2>
+    <div class="partners-grid">
+     <div class="partner-card">
+      <img alt="مؤسسة ولي العهد" class="partner-logo-img" decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/ar/a/a9/CrownPrinceFoundationlogo.jpg" style="max-height:72px;object-fit:contain"/>
+     </div>
+     <div class="partner-card">
+      <img alt="منصة نحن" class="partner-logo-img" decoding="async" loading="lazy" src="https://www.nahno.org/images/logo.png" style="max-height:72px;object-fit:contain"/>
+     </div>
+     <div class="partner-card">
+      <img alt="جامعة اليرموك" class="partner-logo-img" decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Yarmouk_University_logo.png" style="max-height:72px;object-fit:contain"/>
+     </div>
+     <div class="partner-card">
+      <img alt="جامعة ال البيت" class="partner-logo-img" decoding="async" loading="lazy" src="https://aabu.edu.jo/EN/PublishingImages/aa-01.png" style="max-height:72px;object-fit:contain"/>
+     </div>
+     <div class="partner-card">
+      <img alt="الجامعة الامريكية في مادبا" class="partner-logo-img" decoding="async" loading="lazy" src="https://upload.wikimedia.org/wikipedia/en/f/f9/AUMadaba.png" style="max-height:72px;object-fit:contain"/>
+     </div>
+     <div class="partner-card">
+      <div class="partner-logo">
+       <i class="fas fa-handshake">
+       </i>
+      </div>
+      <h3 class="partner-name">
+       جهة متعاونة 1
+      </h3>
+     </div>
+     <div class="partner-card">
+      <div class="partner-logo">
+       <i class="fas fa-handshake">
+       </i>
+      </div>
+      <h3 class="partner-name">
+       جهة متعاونة 2
+      </h3>
+     </div>
+     <div class="partner-card">
+      <div class="partner-logo">
+       <i class="fas fa-handshake">
+       </i>
+      </div>
+      <h3 class="partner-name">
+       جهة متعاونة 3
+      </h3>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Platform Section (Dynamic YouTube Grid) -->
+  <section class="platform" id="platform">
+   <div class="container">
+    <h2 class="section-title">
+     منصة رقيم
+    </h2>
+    <div class="video-grid" id="youtube-grid">
+    </div>
+    <div class="view-all-container">
+     <a class="view-all-btn" href="https://www.youtube.com/@raqeem-jo/videos" rel="noopener" target="_blank">
+      مشاهدة الكل على يوتيوب
+     </a>
+    </div>
+   </div>
+  </section>
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h3 class="footer-title">
+       مبادرة رقيم
+      </h3>
+      <p class="footer-description">
+       مبادرة شبابية تقنية لرفع الوعي الرقمي وتعليم المهارات التقنية للشباب.
+      </p>
+     </div>
+     <div class="footer-section">
+      <h3 class="footer-title">
+       روابط سريعة
+      </h3>
+      <ul class="footer-links">
+       <li>
+        <a href="#home">
+         الرئيسية
+        </a>
+       </li>
+       <li>
+        <a href="#programs">
+         برامجنا
+        </a>
+       </li>
+       <li>
+        <a href="#team">
+         الفريق
+        </a>
+       </li>
+       <li>
+        <a href="#trainers">
+         المدربون
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="footer-section">
+      <h3 class="footer-title">
+       تواصل معنا
+      </h3>
+      <div class="contact-info">
+       <p>
+        <i class="fas fa-map-marker-alt">
+        </i>
+        المفرق، الأردن
+       </p>
+       <p>
+        <i class="fas fa-envelope">
+        </i>
+        baderahusban@gmail.com
+       </p>
+       <a class="footer-phone" href="tel:0791087449">
+        <i class="fas fa-phone">
+        </i>
+        0791087449
+       </a>
+      </div>
+     </div>
+     <div class="footer-section">
+      <h3 class="footer-title">
+       تابعنا
+      </h3>
+      <div class="social-links">
+       <a class="social-link" href="https://www.facebook.com/people/Raqeemjo/61577884989188/" target="_blank">
+        <i class="fab fa-facebook-f">
+        </i>
+       </a>
+       <a class="social-link" href="https://www.instagram.com/raqeem_jo/" target="_blank">
+        <i class="fab fa-instagram">
+        </i>
+       </a>
+       <a class="social-link" href="https://www.linkedin.com/company/raqee/" target="_blank">
+        <i class="fab fa-linkedin-in">
+        </i>
+       </a>
+       <a class="social-link" href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank">
+        <i class="fas fa-globe">
+        </i>
+       </a>
+      </div>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>
+      © 2024 مبادرة رقيم. جميع الحقوق محفوظة.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <script src="script.js">
+  </script>
+  <script src="yt-config.js">
+  </script>
+  <script>
+   (function(){
         const cfg = (window.YT_CONFIG || {});
         cfg.channelId = cfg.channelId || "UCIdL3ni3y02jhIsLO7Rjc2A";
         cfg.maxResults = cfg.maxResults || 9;
@@ -374,6 +600,8 @@
           initYouTubeGrid(cfg);
         }
       })();
-    </script>
-</body>
+  </script>
+  <script defer="" src="assets/js/enhancements.js">
+  </script>
+ </body>
 </html>
