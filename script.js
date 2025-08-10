@@ -221,26 +221,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const disableEffects =
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    window.matchMedia('(max-width: 480px)').matches;
+
   // Tilt effect for cards
-  const tiltEls = document.querySelectorAll('.program-card, .team-member, .trainer-card, .partner-card, .video-card');
-  tiltEls.forEach(el => {
-    el.classList.add('tilt');
-    let raf = null;
-    function handleMove(e){
-      const r = el.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - .5;
-      const y = (e.clientY - r.top) / r.height - .5;
-      const rx = (y * -6).toFixed(2);
-      const ry = (x * 6).toFixed(2);
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(()=>{
-        el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
-      });
-    }
-    function reset(){ el.style.transform='translateY(0)'; }
-    el.addEventListener('mousemove', handleMove);
-    el.addEventListener('mouseleave', reset);
-  });
+  if (!disableEffects) {
+    const tiltEls = document.querySelectorAll('.program-card, .team-member, .trainer-card, .partner-card, .video-card');
+    tiltEls.forEach(el => {
+      el.classList.add('tilt');
+      let raf = null;
+      function handleMove(e){
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        const rx = (y * -6).toFixed(2);
+        const ry = (x * 6).toFixed(2);
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(()=>{
+          el.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+        });
+      }
+      function reset(){ el.style.transform='translateY(0)'; }
+      el.addEventListener('mousemove', handleMove);
+      el.addEventListener('mouseleave', reset);
+    });
+  }
 
   // Nav underline indicator
   const nav = document.querySelector('.nav-menu');
@@ -265,44 +271,46 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Particles in hero (lightweight)
-  const hero = document.querySelector('.hero');
-  if(hero){
-    const canvas = document.createElement('canvas');
-    canvas.id = 'particles';
-    hero.style.position = 'relative';
-    hero.appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-    let w,h, dpr = Math.min(2, window.devicePixelRatio || 1);
-    const particles = Array.from({length: 45}, ()=>({x:0,y:0,vx:0,vy:0,s:0, a: Math.random()*Math.PI*2}));
-    function resize(){
-      w = canvas.width = hero.clientWidth * dpr;
-      h = canvas.height = hero.clientHeight * dpr;
-      canvas.style.width = hero.clientWidth + 'px';
-      canvas.style.height = hero.clientHeight + 'px';
-    }
-    function reset(p){
-      p.x = Math.random()*w; p.y = Math.random()*h;
-      const sp = .2 + Math.random()*.8;
-      p.vx = Math.cos(p.a)*sp; p.vy = Math.sin(p.a)*sp;
-      p.s = 1 + Math.random()*2;
-    }
-    particles.forEach(reset);
-    resize();
-    window.addEventListener('resize', resize);
-    let last = performance.now();
-    function tick(now){
-      const dt = Math.min(32, now - last); last = now;
-      ctx.clearRect(0,0,w,h);
-      ctx.globalAlpha = .6;
-      ctx.fillStyle = '#ffffff';
-      particles.forEach(p=>{
-        p.x += p.vx*dt; p.y += p.vy*dt;
-        if(p.x<0||p.x>w||p.y<0||p.y>h) reset(p);
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
-      });
+  if (!disableEffects) {
+    const hero = document.querySelector('.hero');
+    if(hero){
+      const canvas = document.createElement('canvas');
+      canvas.id = 'particles';
+      hero.style.position = 'relative';
+      hero.appendChild(canvas);
+      const ctx = canvas.getContext('2d');
+      let w,h, dpr = Math.min(2, window.devicePixelRatio || 1);
+      const particles = Array.from({length: 45}, ()=>({x:0,y:0,vx:0,vy:0,s:0, a: Math.random()*Math.PI*2}));
+      function resize(){
+        w = canvas.width = hero.clientWidth * dpr;
+        h = canvas.height = hero.clientHeight * dpr;
+        canvas.style.width = hero.clientWidth + 'px';
+        canvas.style.height = hero.clientHeight + 'px';
+      }
+      function reset(p){
+        p.x = Math.random()*w; p.y = Math.random()*h;
+        const sp = .2 + Math.random()*.8;
+        p.vx = Math.cos(p.a)*sp; p.vy = Math.sin(p.a)*sp;
+        p.s = 1 + Math.random()*2;
+      }
+      particles.forEach(reset);
+      resize();
+      window.addEventListener('resize', resize);
+      let last = performance.now();
+      function tick(now){
+        const dt = Math.min(32, now - last); last = now;
+        ctx.clearRect(0,0,w,h);
+        ctx.globalAlpha = .6;
+        ctx.fillStyle = '#ffffff';
+        particles.forEach(p=>{
+          p.x += p.vx*dt; p.y += p.vy*dt;
+          if(p.x<0||p.x>w||p.y<0||p.y>h) reset(p);
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.s, 0, Math.PI*2); ctx.fill();
+        });
+        requestAnimationFrame(tick);
+      }
       requestAnimationFrame(tick);
     }
-    requestAnimationFrame(tick);
   }
 });
 
