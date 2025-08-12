@@ -126,3 +126,20 @@ header nav a, .header nav a, #header nav a, .site-header nav a {
   }
 }
 
+
+
+/* === Force app-tabbar to remain visible on scroll (pages/* paths) === */
+.app-tabbar {
+  position: fixed !important;
+  left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  transform: none !important;
+  opacity: 1 !important;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+@supports (padding: max(0px)) {
+  body { padding-bottom: max(84px, env(safe-area-inset-bottom)); }
+}
+@supports not (padding: max(0px)) {
+  body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+}

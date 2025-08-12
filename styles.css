@@ -1089,3 +1089,14 @@ body{ background:var(--bg); color:var(--text); }
 .partner-card .title{ font-weight:700; color:var(--text); }
 .partner-card .desc{ font-size:14px; color:var(--muted); }
 .partner-card .actions a{ display:inline-block; padding:6px 10px; border-radius:10px; background:linear-gradient(135deg,var(--primary-start),var(--primary-end)); color:#fff; text-decoration:none; }
+
+
+/* === Ensure space for fixed bottom tabbar === */
+@supports (padding: max(0px)) {
+  body {
+    padding-bottom: max(84px, env(safe-area-inset-bottom)); /* matches ~56-72px tabbar + safe-area */
+  }
+}
+@supports not (padding: max(0px)) {
+  body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+}
