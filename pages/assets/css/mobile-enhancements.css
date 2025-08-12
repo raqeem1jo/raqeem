@@ -1,0 +1,128 @@
+/* === Mobile Enhancements (auto-generated) === */
+:root {
+  --max-width: 1200px;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --transition: 250ms ease;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+section, .section {
+  padding: clamp(24px, 6vw, 72px) clamp(16px, 5vw, 48px);
+  margin-inline: auto;
+  max-width: var(--max-width);
+}
+
+.container, .wrapper, .content {
+  margin-inline: auto;
+  max-width: var(--max-width);
+  padding-inline: clamp(12px, 3vw, 24px);
+}
+
+.card, .feature, .tile {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: clip;
+}
+
+/* Typography that scales on mobile */
+h1 { font-size: clamp(28px, 5.5vw, 44px); line-height: 1.1; }
+h2 { font-size: clamp(22px, 4.5vw, 34px); line-height: 1.15; }
+h3 { font-size: clamp(18px, 3.8vw, 26px); line-height: 1.2; }
+p, li { font-size: clamp(14px, 2.8vw, 18px); line-height: 1.7; }
+
+/* Buttons */
+button, .btn, [role="button"] {
+  border-radius: 999px;
+  padding: 12px 18px;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  will-change: transform;
+}
+button:hover, .btn:hover, [role="button"]:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+
+/* Grids become single column on mobile */
+@media (max-width: 768px) {
+  .grid, .row, [class*="grid"], [class*="row"] {
+    display: grid !important;
+    gap: clamp(12px, 3vw, 24px);
+    grid-template-columns: 1fr !important;
+  }
+  .col, [class*="col-"] { width: 100% !important; max-width: 100% !important; }
+  nav ul { display: none; }
+  nav.is-open ul { display: block; }
+}
+
+/* Sticky, blurred header (if a header/nav exists) */
+header, nav {
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+}
+
+/* Animation primitives */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  transition:
+    opacity 600ms cubic-bezier(.2,.8,.2,1),
+    transform 600ms cubic-bezier(.2,.8,.2,1);
+  will-change: opacity, transform;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.reveal.fade-in { transform: none; }
+.reveal.fade-in.in-view { opacity: 1; }
+
+.reveal.fade-up { transform: translateY(18px); }
+.reveal.fade-up.in-view { transform: translateY(0); }
+
+/* Subtle parallax on large screens */
+@media (min-width: 992px) {
+  .parallax {
+    transform: translateY(calc(var(--scroll, 0) * 0.15px));
+    transition: transform 40ms linear;
+    will-change: transform;
+  }
+}
+
+/* Injected (GPT): Ensure compact header */
+:root{ --header-pad-y: 6px; --header-logo: 28px; --nav-font: 13px; }
+@media (max-width:768px){
+  :root{ --header-pad-y: 4px; --header-logo: 22px; --nav-font: 12px; }
+}
+header, .header, #header, .site-header{ padding-top: var(--header-pad-y) !important; padding-bottom: var(--header-pad-y) !important; min-height:40px !important; }
+
+
+
+/* Injected (GPT): Smaller Nav Menu */
+header nav a, .header nav a, #header nav a, .site-header nav a {
+  font-size: 12px !important;
+  padding: 4px 6px !important;
+}
+@media (max-width: 768px){
+  header nav a, .header nav a, #header nav a, .site-header nav a {
+    font-size: 11px !important;
+    padding: 3px 5px !important;
+  }
+}
+

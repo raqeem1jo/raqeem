@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>الرئيسية - مبادرة رقيم</title>
+  <title>منصاتنا - مبادرة رقيم</title>
   <link href="styles.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
@@ -120,39 +120,27 @@ header nav a, .header nav a, #header nav a, .site-header nav a {
    </nav>
   </header>
 <main>
-<section class="hero" id="home">
-   <div class="hero-container">
-    <div class="hero-content">
-     <h1 class="hero-title">
-      مبادرة رقيم
-     </h1>
-     <p class="hero-description">
-      مبادرة شبابية تأسست عام 2024 لرفع الوعي بالتقنية وتعليم الشباب المهارات الرقمية، الذكاء الاصطناعي، البرمجة، الأمن السيبراني، التسويق، والعديد من الدورات والورشات.
-     </p>
-     <div class="social-links">
-      <a class="social-link" href="https://www.facebook.com/people/Raqeemjo/61577884989188/" target="_blank">
-       <i class="fab fa-facebook-f">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.instagram.com/raqeem_jo/" target="_blank">
-       <i class="fab fa-instagram">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.linkedin.com/company/raqee/" target="_blank">
-       <i class="fab fa-linkedin-in">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank">
-       <i class="fas fa-globe">
-       </i>
-      </a>
-     </div>
+
+<section class="section bg-surface-2" id="platform">
+  <div class="container">
+    <h1 class="section-title">منصّة رقيم</h1>
+    <div class="platform-toolbar">
+      <input id="yt-search" type="search" placeholder="ابحث في عناوين الفيديوهات..." aria-label="ابحث"/>
     </div>
-    <div class="hero-image">
-     <img alt="مبادرة رقيم" class="hero-logo" src="logo.png"/>
-    </div>
-   </div>
-  </section>
+    <div id="yt-latest" class="lux-grid"></div>
+  </div>
+</section>
+<style>
+.platform-toolbar{ margin:12px 0 16px; }
+.platform-toolbar input{ width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.06); color:#fff; }
+.lux-grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap:18px; }
+.lux-grid .video{ background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.25); }
+.lux-grid .video iframe{ width:100%; aspect-ratio:16/9; border:0; display:block; }
+.lux-grid .video .video-meta{ padding:12px 14px; color:var(--muted); }
+</style>
+<script src="yt-config.js"></script>
+<script src="assets/js/yt-latest.js"></script>
+
 </main>
 <footer class="footer" id="contact">
    <div class="container">

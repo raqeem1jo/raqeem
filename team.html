@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>الرئيسية - مبادرة رقيم</title>
+  <title>الفريق - مبادرة رقيم</title>
   <link href="styles.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
@@ -120,39 +120,96 @@ header nav a, .header nav a, #header nav a, .site-header nav a {
    </nav>
   </header>
 <main>
-<section class="hero" id="home">
-   <div class="hero-container">
-    <div class="hero-content">
-     <h1 class="hero-title">
-      مبادرة رقيم
-     </h1>
-     <p class="hero-description">
-      مبادرة شبابية تأسست عام 2024 لرفع الوعي بالتقنية وتعليم الشباب المهارات الرقمية، الذكاء الاصطناعي، البرمجة، الأمن السيبراني، التسويق، والعديد من الدورات والورشات.
-     </p>
-     <div class="social-links">
-      <a class="social-link" href="https://www.facebook.com/people/Raqeemjo/61577884989188/" target="_blank">
-       <i class="fab fa-facebook-f">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.instagram.com/raqeem_jo/" target="_blank">
-       <i class="fab fa-instagram">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.linkedin.com/company/raqee/" target="_blank">
-       <i class="fab fa-linkedin-in">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank">
-       <i class="fas fa-globe">
-       </i>
-      </a>
-     </div>
+
+    
+
+
+    <style>
+    .team-grid{ display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:18px; }
+    .team-media img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:16px; }
+    .team-body{ padding:12px; }
+    .team-name{ font-size:18px; margin:4px 0; color: var(--text); }
+    .team-role{ font-size:14px; color: var(--muted); }
+    </style>
+    
+
+
+<section class="section team-section bg-surface-2">
+  <div class="container">
+    <h2 class="section-title">فريق العمل</h2>
+    <div class="team-grid grid cols-3">
+      
+        <div class="team-card person-card">
+          <div class="team-card-media"><img src="assets/img/avatars/بدر_الحسبان.svg" alt="بدر الحسبان"/></div>
+          <div class="team-card-body body">
+            <h3 class="team-name name">بدر الحسبان</h3>
+            <p class="team-role role">المؤسس والمسؤول الرئيسي للمبادرة</p>
+          </div>
+        </div>
+        <div class="team-card person-card">
+          <div class="team-card-media"><img src="assets/img/avatars/أمين_المصري.svg" alt="أمين المصري"/></div>
+          <div class="team-card-body body">
+            <h3 class="team-name name">أمين المصري</h3>
+            <p class="team-role role">مسؤول الإعلام ومدير برنامج زاوية</p>
+          </div>
+        </div>
+        <div class="team-card person-card">
+          <div class="team-card-media"><img src="assets/img/avatars/شهم_الحسبان.svg" alt="شهم الحسبان"/></div>
+          <div class="team-card-body body">
+            <h3 class="team-name name">شهم الحسبان</h3>
+            <p class="team-role role">منسق محافظة المفرق</p>
+          </div>
+        </div>
+        <div class="team-card person-card">
+          <div class="team-card-media"><img src="assets/img/avatars/سحر_العموش.svg" alt="سحر العموش"/></div>
+          <div class="team-card-body body">
+            <h3 class="team-name name">سحر العموش</h3>
+            <p class="team-role role">مديرة برنامج نشمية</p>
+          </div>
+        </div>
+        <div class="team-card person-card">
+          <div class="team-card-media"><img src="assets/img/avatars/محمد_عبيدات.svg" alt="محمد عبيدات"/></div>
+          <div class="team-card-body body">
+            <h3 class="team-name name">محمد عبيدات</h3>
+            <p class="team-role role">منسق محافظة إربد</p>
+          </div>
+        </div>
+        <div class="team-card person-card">
+          <div class="team-card-media"><img src="assets/img/avatars/سجى_عصايرة.svg" alt="سجى عصايرة"/></div>
+          <div class="team-card-body body">
+            <h3 class="team-name name">سجى عصايرة</h3>
+            <p class="team-role role">منسقة محافظة الزرقاء</p>
+          </div>
+        </div>
+        <div class="team-card person-card">
+          <div class="team-card-media"><img src="assets/img/avatars/زهراء_غرايبة.svg" alt="زهراء غرايبة"/></div>
+          <div class="team-card-body body">
+            <h3 class="team-name name">زهراء غرايبة</h3>
+            <p class="team-role role">منسقة محافظة عجلون</p>
+          </div>
+        </div>
+        <div class="team-card person-card">
+          <div class="team-card-media"><img src="assets/img/avatars/سارة_المجلي.svg" alt="سارة المجلي"/></div>
+          <div class="team-card-body body">
+            <h3 class="team-name name">سارة المجلي</h3>
+            <p class="team-role role">منسقة محافظة جرش</p>
+          </div>
+        </div>
     </div>
-    <div class="hero-image">
-     <img alt="مبادرة رقيم" class="hero-logo" src="logo.png"/>
-    </div>
-   </div>
-  </section>
+  </div>
+</section>
+<style>
+.team-grid{ gap:18px; }
+.team-card-media img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:16px; }
+.team-card-body{ padding:12px; }
+</style>
+
+<style>
+.team-grid{{ gap:18px; }}
+.team-card-media img{{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:16px; }}
+.team-card-body{{ padding:12px; }}
+</style>
+
 </main>
 <footer class="footer" id="contact">
    <div class="container">

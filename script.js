@@ -334,12 +334,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Add floating call pill on mobile
-  const pill = document.createElement('a');
-  pill.href = 'tel:0791087449';
-  pill.className = 'footer-call-float';
-  pill.innerHTML = '<i class="fas fa-phone"></i> اتصل الآن';
-  document.body.appendChild(pill);
+  // PWA: prompt install (minimal)
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  window.deferredPrompt = e;
 });
-
-
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }

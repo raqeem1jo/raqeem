@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>الرئيسية - مبادرة رقيم</title>
+  <title>الجهات المتعاونة - مبادرة رقيم</title>
   <link href="styles.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
@@ -120,39 +120,51 @@ header nav a, .header nav a, #header nav a, .site-header nav a {
    </nav>
   </header>
 <main>
-<section class="hero" id="home">
-   <div class="hero-container">
-    <div class="hero-content">
-     <h1 class="hero-title">
-      مبادرة رقيم
-     </h1>
-     <p class="hero-description">
-      مبادرة شبابية تأسست عام 2024 لرفع الوعي بالتقنية وتعليم الشباب المهارات الرقمية، الذكاء الاصطناعي، البرمجة، الأمن السيبراني، التسويق، والعديد من الدورات والورشات.
-     </p>
-     <div class="social-links">
-      <a class="social-link" href="https://www.facebook.com/people/Raqeemjo/61577884989188/" target="_blank">
-       <i class="fab fa-facebook-f">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.instagram.com/raqeem_jo/" target="_blank">
-       <i class="fab fa-instagram">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.linkedin.com/company/raqee/" target="_blank">
-       <i class="fab fa-linkedin-in">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank">
-       <i class="fas fa-globe">
-       </i>
-      </a>
-     </div>
+
+<section class="section bg-surface-2" id="partners">
+  <div class="container">
+    <h1 class="section-title">الجهات المتعاونة</h1>
+    <div class="partners-mini">
+      
+  <a class="partner-mini" href="https://www.yu.edu.jo" target="_blank" rel="noopener">
+    <img src="assets/img/partners/yu.png" alt="جامعة اليرموك"/>
+    <div class="title">جامعة اليرموك</div>
+  </a>
+
+  <a class="partner-mini" href="https://www.aabu.edu.jo" target="_blank" rel="noopener">
+    <img src="assets/img/partners/aabu.png" alt="جامعة آل البيت"/>
+    <div class="title">جامعة آل البيت</div>
+  </a>
+
+  <a class="partner-mini" href="https://www.cpf.jo" target="_blank" rel="noopener">
+    <img src="assets/img/partners/cpf.png" alt="مؤسسة ولي العهد"/>
+    <div class="title">مؤسسة ولي العهد</div>
+  </a>
+
+  <a class="partner-mini" href="https://nahno.org" target="_blank" rel="noopener">
+    <img src="assets/img/partners/nahno.png" alt="منصة نَحْنُ"/>
+    <div class="title">منصة نَحْنُ</div>
+  </a>
+
+  <a class="partner-mini" href="#" target="_blank" rel="noopener">
+    <img src="assets/img/partners/raya.png" alt="جمعية راية النور"/>
+    <div class="title">جمعية راية النور</div>
+  </a>
+
+  <a class="partner-mini" href="#" target="_blank" rel="noopener">
+    <img src="assets/img/partners/maf_youth.png" alt="مركز شباب المفرق"/>
+    <div class="title">مركز شباب المفرق</div>
+  </a>
     </div>
-    <div class="hero-image">
-     <img alt="مبادرة رقيم" class="hero-logo" src="logo.png"/>
-    </div>
-   </div>
-  </section>
+  </div>
+</section>
+<style>
+.partners-mini{ display:grid; grid-template-columns: repeat(auto-fill,minmax(160px,1fr)); gap:14px; }
+.partner-mini{ display:flex; align-items:center; gap:10px; padding:10px 12px; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:14px; text-decoration:none; }
+.partner-mini img{ width:40px; height:40px; border-radius:8px; object-fit:cover; }
+.partner-mini .title{ color:#fff; font-size:14px; font-weight:600; }
+</style>
+
 </main>
 <footer class="footer" id="contact">
    <div class="container">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>الرئيسية - مبادرة رقيم</title>
+  <title>البرامج والورشات - مبادرة رقيم</title>
   <link href="styles.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
@@ -120,39 +120,45 @@ header nav a, .header nav a, #header nav a, .site-header nav a {
    </nav>
   </header>
 <main>
-<section class="hero" id="home">
-   <div class="hero-container">
-    <div class="hero-content">
-     <h1 class="hero-title">
-      مبادرة رقيم
-     </h1>
-     <p class="hero-description">
-      مبادرة شبابية تأسست عام 2024 لرفع الوعي بالتقنية وتعليم الشباب المهارات الرقمية، الذكاء الاصطناعي، البرمجة، الأمن السيبراني، التسويق، والعديد من الدورات والورشات.
-     </p>
-     <div class="social-links">
-      <a class="social-link" href="https://www.facebook.com/people/Raqeemjo/61577884989188/" target="_blank">
-       <i class="fab fa-facebook-f">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.instagram.com/raqeem_jo/" target="_blank">
-       <i class="fab fa-instagram">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.linkedin.com/company/raqee/" target="_blank">
-       <i class="fab fa-linkedin-in">
-       </i>
-      </a>
-      <a class="social-link" href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank">
-       <i class="fas fa-globe">
-       </i>
-      </a>
-     </div>
+
+<section class="section bg-surface-2" id="programs">
+  <div class="container">
+    <h1 class="section-title">برامجنا</h1>
+    <div class="programs-grid">
+      
+  <article class="program-card lux">
+    <header><h3>الوعي التقني</h3></header>
+    <p>البرنامج الأساسي لِرقيم لتمكين الشباب والشابات في الأردن رقمياً.</p>
+  </article>
+
+  <article class="program-card lux">
+    <header><h3>تلفزيون نشمية</h3></header>
+    <p>برنامج لطالبات المدارس لتحويل الإذاعة المدرسية إلى إعلام رقمي.</p>
+  </article>
+
+  <article class="program-card lux">
+    <header><h3>تمكين المدربين</h3></header>
+    <p>إعداد مدربين ضمن المبادرة لضمان الاستدامة والاستمرارية.</p>
+  </article>
+
+  <article class="program-card lux">
+    <header><h3>زاوية</h3></header>
+    <p>برنامج شبابي على إنستغرام يقدم مواضيع شبابية على شكل بودكاست.</p>
+  </article>
     </div>
-    <div class="hero-image">
-     <img alt="مبادرة رقيم" class="hero-logo" src="logo.png"/>
-    </div>
-   </div>
-  </section>
+  </div>
+</section>
+<style>
+.programs-grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap:18px; }
+.program-card.lux{ padding:20px; border-radius:18px; background:
+  radial-gradient(600px 200px at 30% -20%, rgba(102,126,234,.10), transparent),
+  linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08); box-shadow:0 10px 30px rgba(0,0,0,.25); }
+.program-card.lux h3{ color:#fff; font-size:20px; margin-bottom:8px; }
+.program-card.lux p{ color:var(--muted); min-height:64px; }
+.program-card.lux:hover{ transform: translateY(-4px); transition:.25s; }
+</style>
+
 </main>
 <footer class="footer" id="contact">
    <div class="container">

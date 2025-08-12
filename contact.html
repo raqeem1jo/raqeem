@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>الرئيسية - مبادرة رقيم</title>
+  <title>تواصل معنا - مبادرة رقيم</title>
   <link href="styles.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
@@ -120,39 +120,51 @@ header nav a, .header nav a, #header nav a, .site-header nav a {
    </nav>
   </header>
 <main>
-<section class="hero" id="home">
-   <div class="hero-container">
-    <div class="hero-content">
-     <h1 class="hero-title">
-      مبادرة رقيم
-     </h1>
-     <p class="hero-description">
-      مبادرة شبابية تأسست عام 2024 لرفع الوعي بالتقنية وتعليم الشباب المهارات الرقمية، الذكاء الاصطناعي، البرمجة، الأمن السيبراني، التسويق، والعديد من الدورات والورشات.
-     </p>
-     <div class="social-links">
-      <a class="social-link" href="https://www.facebook.com/people/Raqeemjo/61577884989188/" target="_blank">
-       <i class="fab fa-facebook-f">
-       </i>
+
+<section class="section bg-surface-2" id="contact-social">
+  <div class="container">
+    <h1 class="section-title">تواصل معنا</h1>
+    <p class="subtle">اختر أي وسيلة تفضّلها للتواصل السريع.</p>
+    <div class="social-grid">
+      <a class="social-card insta" href="https://www.instagram.com/raqeem_jo/" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i>
+        <div><h3>Instagram</h3><p>أخبار وأنشطة وصور</p></div>
       </a>
-      <a class="social-link" href="https://www.instagram.com/raqeem_jo/" target="_blank">
-       <i class="fab fa-instagram">
-       </i>
+      <a class="social-card fb" href="https://www.facebook.com/people/Raqeemjo/6157788498918" target="_blank" rel="noopener">
+        <i class="fab fa-facebook"></i>
+        <div><h3>Facebook</h3><p>منشورات وأخبار المبادرة</p></div>
       </a>
-      <a class="social-link" href="https://www.linkedin.com/company/raqee/" target="_blank">
-       <i class="fab fa-linkedin-in">
-       </i>
+      <a class="social-card li" href="https://www.linkedin.com/company/raqee/" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+        <div><h3>LinkedIn</h3><p>شراكات وفرص</p></div>
       </a>
-      <a class="social-link" href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank">
-       <i class="fas fa-globe">
-       </i>
+      <a class="social-card nahno" href="https://www.nahno.org/ngo/%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9-%D8%B1%D9%82%D9%8A%D9%85-74875" target="_blank" rel="noopener">
+        <i class="fas fa-hands-helping"></i>
+        <div><h3>منصة نَحْنُ</h3><p>فرص تطوعية وتوثيق ساعات</p></div>
       </a>
-     </div>
+      <a class="social-card wa" href="https://chat.whatsapp.com/JP63XmrhbYVBYHCPfinUIk?mode=ac_t" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+        <div><h3>WhatsApp</h3><p>تواصل مباشر / الانضمام للمجتمع</p></div>
+      </a>
     </div>
-    <div class="hero-image">
-     <img alt="مبادرة رقيم" class="hero-logo" src="logo.png"/>
-    </div>
-   </div>
-  </section>
+  </div>
+</section>
+<style>
+.social-grid{ display:grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
+.social-card{ display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:16px; text-decoration:none; color:#fff;
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 10px 30px rgba(0,0,0,.25); }
+.social-card i{ font-size:28px; }
+.social-card h3{ margin:0; font-size:18px; color:#fff; }
+.social-card p{ margin:2px 0 0; color:var(--muted); font-size:14px; }
+.social-card:hover{ transform: translateY(-3px); transition:.25s; }
+.social-card.insta i{ color:#E1306C; }
+.social-card.fb i{ color:#1877F2; }
+.social-card.li i{ color:#0A66C2; }
+.social-card.nahno i{ color:#22c55e; }
+.social-card.wa i{ color:#25D366; }
+</style>
+
 </main>
 <footer class="footer" id="contact">
    <div class="container">

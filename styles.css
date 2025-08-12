@@ -1047,3 +1047,45 @@ header nav a, .header nav a, #header nav a, .site-header nav a {
   }
 }
 
+
+
+/* === Raqeem Unified Surfaces (patch) === */
+:root{
+  --bg: #0f1222;
+  --surface: #12172b;
+  --surface-2: #161c33;
+  --text: #e9ecf1;
+  --muted: #aab3c7;
+  --primary-start:#667eea;
+  --primary-end:#764ba2;
+  --shadow: 0 10px 25px rgba(0,0,0,.25);
+  --radius:16px;
+}
+body{ background:var(--bg); color:var(--text); }
+.section{ background:transparent; }
+.section.alt{ background:var(--surface-2); }
+.card, .person-card, .team-card, .partner-card{
+  background:var(--surface);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  color:var(--text);
+}
+.section-title{ color:#fff; }
+.subtle{ color:var(--muted); }
+.bg-surface{ background:var(--surface); }
+.bg-surface-2{ background:var(--surface-2); }
+.grid{ display:grid; gap:18px; }
+.grid.cols-2{ grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); }
+.grid.cols-3{ grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); }
+.person-card img, .partner-card img{
+  width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:12px;
+}
+.person-card .body{ padding:12px; }
+.person-card .name{ font-size:18px; margin:4px 0; color:var(--text); }
+.person-card .role{ font-size:14px; color:var(--muted); }
+.partner-card{ padding:14px; display:flex; align-items:center; gap:12px; }
+.partner-card .meta{ display:flex; flex-direction:column; gap:4px; }
+.partner-card .title{ font-weight:700; color:var(--text); }
+.partner-card .desc{ font-size:14px; color:var(--muted); }
+.partner-card .actions a{ display:inline-block; padding:6px 10px; border-radius:10px; background:linear-gradient(135deg,var(--primary-start),var(--primary-end)); color:#fff; text-decoration:none; }
